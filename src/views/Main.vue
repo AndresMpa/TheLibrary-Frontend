@@ -1,14 +1,16 @@
 <template>
   <main>
     <Bar></Bar>
+    <Books-Layout/>
   </main>
 </template>
 
 <script>
-import Bar from "../components/Bar.vue";
+import BooksLayout from '../components/book/BooksLayout.vue';
+import Bar from '../components/navigation/Bar.vue';
 export default {
   name: "Main",
-  components: { Bar },
+  components: { Bar, BooksLayout },
 };
 </script>
 

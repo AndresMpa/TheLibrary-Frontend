@@ -3,7 +3,7 @@
     class="grey lighten-2 image"
     :lazy-src="preload"
     aspect-ratio="1"
-    :src="book"
+    src="../../assets/example.jpg"
   >
     <template v-slot:placeholder>
       <v-row class="fill-height ma-0" align="center" justify="center">
@@ -21,7 +21,8 @@ export default {
   name: "Images",
   data() {
     return {
-      preload: "@/assets/default.jpg",
+      preload: "../../assets/default.jpg",
+      //"https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/default.jpg?token=GHSAT0AAAAAABQ7JU4ITJ2KDUBFVZ5EJU7KYR2V35A",
     };
   },
   props: {

@@ -35,13 +35,21 @@
           {{ information.rating }} ({{ information.votes }})
         </div>
       </v-row>
-
-      <div class="my-4 text-subtitle-1">Resumen</div>
-
-      <div>
-        {{ information.summary }}
-      </div>
     </v-card-text>
+
+    <v-expansion-panels popout>
+      <v-expansion-panel>
+        <v-expansion-panel-header disable-icon-rotate>
+          Resumen
+          <template v-slot:actions>
+            <v-icon color="primary"> mdi-bookshelf</v-icon>
+          </template>
+        </v-expansion-panel-header>
+        <v-expansion-panel-content>
+          {{ information.summary }}
+        </v-expansion-panel-content>
+      </v-expansion-panel>
+    </v-expansion-panels>
 
     <v-divider class="mx-4"></v-divider>
 

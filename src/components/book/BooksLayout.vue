@@ -1,19 +1,17 @@
 <template>
   <article>
-    <div class="d-flex justify-space-around">
-      <Last-Book></Last-Book>
-      <Last-Book></Last-Book>
-    </div>
+    <MostSold />
     <Shelf />
   </article>
 </template>
 
 <script>
 import LastBook from "./LastBook.vue";
+import MostSold from "./MostSold.vue";
 import Shelf from "./Shelf.vue";
 export default {
   name: "BooksLayout",
-  components: { Shelf, LastBook },
+  components: { Shelf, LastBook, MostSold },
 };
 </script>
 

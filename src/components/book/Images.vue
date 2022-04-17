@@ -1,9 +1,9 @@
 <template>
   <v-img
+    src="../../assets/example.jpg"
     class="grey lighten-2 image"
     :lazy-src="preload"
     aspect-ratio="1"
-    src="../../assets/example.jpg"
   >
     <template v-slot:placeholder>
       <v-row class="fill-height ma-0" align="center" justify="center">

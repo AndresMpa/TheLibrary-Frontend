@@ -1,8 +1,8 @@
 <template>
   <v-toolbar color="primary">
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
-
-    <v-toolbar-title>Libreria UTP</v-toolbar-title>
+    <v-toolbar-title>
+      <Client/>
+    </v-toolbar-title>
 
     <v-spacer></v-spacer>
 
@@ -32,14 +32,13 @@
 <script>
 import ChangeColor from "../util/ChangeColor.vue";
 import ShoppingBag from "../util/ShoppingBag.vue";
+import Client from "./Client.vue";
 export default {
   name: "Bar",
-  data() {
-    return {
-      query: "",
-    };
-  },
-  components: { ChangeColor, ShoppingBag },
+  data: () => ({
+    query: "",
+  }),
+  components: { ChangeColor, ShoppingBag, Client },
   methods: {
     showFilter() {
       console.log("filtering");

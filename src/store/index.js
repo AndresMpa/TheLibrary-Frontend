@@ -11,6 +11,7 @@ export default new Vuex.Store({
       filter: [],
     },
     shoppingBag: false,
+    seeBook: false,
   },
   mutations: {
     setShoppingBar(state, shopping) {
@@ -25,6 +26,9 @@ export default new Vuex.Store({
     setSearchFilter(state, filter) {
       state.search.filter.push(filter);
     },
+    setBookStatus(state, status) {
+      state.seeBook = status;
+    }
   },
   actions: {
     changeShoppingBag({ commit }, status) {
@@ -43,6 +47,10 @@ export default new Vuex.Store({
         commit("setSearchFilter", constrain);
       });
     },
+
+    seeBook({commit}) {
+      commit("setBookStatus", !this.state.seeBook)
+    }
   },
   modules: {},
 });

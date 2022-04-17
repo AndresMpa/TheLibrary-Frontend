@@ -5,9 +5,11 @@
 </template>
 
 <script>
+import ContentLoader from "./components/util/ContentLoader.vue";
 export default {
   name: "App",
   data: () => ({}),
+  components: { ContentLoader },
 };
 </script>
 

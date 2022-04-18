@@ -20,18 +20,18 @@ export default {
     return {
       books: [
         {
-          img: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
+          img: "https://img.jakpost.net/c/2019/03/02/2019_03_02_66706_1551461528._large.jpg",
           name: "Antologia de Terror",
           author: "LoveCraft",
         },
         {
-          img: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
           name: "Mago de oz el mundo perdido",
+          img: "../../assets/parallax.jpg",
           author: "Oscar de la Frielda",
         },
         {
-          img: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
           name: "Como torturar estudiantes",
+          img: "../../assets/parallax.jpg",
           author: "Felipe Castillo",
         },
         {

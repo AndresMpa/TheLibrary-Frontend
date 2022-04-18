@@ -4,8 +4,15 @@
       <v-parallax :src="book.img" height="300" dark>
         <v-row align="center" justify="center">
           <v-col class="text-center" cols="12">
-            <h1 class="clickable text-h4 font-weight-thin mb-4" @click="seeBook()">{{ book.name }}</h1>
-            <h4 class="clickable subheading" @click="seeBook()">{{ book.author }}</h4>
+            <h1
+              class="clickable text-h4 font-weight-thin mb-4"
+              @click="seeBook()"
+            >
+              {{ book.name }}
+            </h1>
+            <h4 class="clickable subheading" @click="seeBook()">
+              {{ book.author }}
+            </h4>
           </v-col>
         </v-row>
       </v-parallax>
@@ -20,22 +27,22 @@ export default {
     return {
       books: [
         {
-          img: "https://img.jakpost.net/c/2019/03/02/2019_03_02_66706_1551461528._large.jpg",
+          img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
           name: "Antologia de Terror",
           author: "LoveCraft",
         },
         {
+          img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
           name: "Mago de oz el mundo perdido",
-          img: "../../assets/parallax.jpg",
           author: "Oscar de la Frielda",
         },
         {
+          img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
           name: "Como torturar estudiantes",
-          img: "../../assets/parallax.jpg",
           author: "Felipe Castillo",
         },
         {
-          img: "https://cdn.vuetifyjs.com/images/backgrounds/vbanner.jpg",
+          img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
           name: "Caminar por las cuerdas de la vida, tomo 1",
           author: "Per Turnum",
         },

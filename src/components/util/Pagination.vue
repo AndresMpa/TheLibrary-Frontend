@@ -5,6 +5,7 @@
         <v-col cols="8">
           <v-container class="max-width">
             <v-pagination
+              :total-visible="6"
               v-model="page"
               :length="15"
               class="my-4"
@@ -20,11 +21,9 @@
 <script>
 export default {
   name: "Pagination",
-  data() {
-    return {
-      page: 1,
-    };
-  },
+  props: {
+    page: Number
+  }
 };
 </script>
 

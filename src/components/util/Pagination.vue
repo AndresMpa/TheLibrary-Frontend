@@ -6,8 +6,8 @@
           <v-container class="max-width">
             <v-pagination
               :total-visible="6"
+              :length="total"
               v-model="page"
-              :length="15"
               class="my-4"
               circle
             ></v-pagination>
@@ -21,9 +21,17 @@
 <script>
 export default {
   name: "Pagination",
+  data: () => ({
+    page: 1,
+  }),
   props: {
-    page: Number
-  }
+    total: Number,
+  },
+  watch: {
+    page(value) {
+      this.$store.dispatch("updatePage", value)
+    },
+  },
 };
 </script>
 

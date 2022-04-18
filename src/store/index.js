@@ -12,6 +12,7 @@ export default new Vuex.Store({
     },
     shoppingBag: false,
     seeBook: false,
+    currentPage: 1,
   },
   mutations: {
     setShoppingBar(state, shopping) {
@@ -28,7 +29,10 @@ export default new Vuex.Store({
     },
     setBookStatus(state, status) {
       state.seeBook = status;
-    }
+    },
+    setPageNumber(state, pageNumber) {
+      state.currentPage = pageNumber;
+    },
   },
   actions: {
     changeShoppingBag({ commit }, status) {
@@ -48,8 +52,12 @@ export default new Vuex.Store({
       });
     },
 
-    seeBook({commit}) {
-      commit("setBookStatus", !this.state.seeBook)
+    seeBook({ commit }) {
+      commit("setBookStatus", !this.state.seeBook);
+    },
+
+    updatePage({ commit }, number) {
+      commit("setPageNumber", number)
     }
   },
   modules: {},

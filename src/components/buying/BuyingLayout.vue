@@ -1,10 +1,12 @@
 <template>
-
+  <h1>
+    Buying
+  </h1>
 </template>
 
 <script>
 export default {
-  name: "AddBook",
+  name: "BuyingLayout",
 }
 </script>
 

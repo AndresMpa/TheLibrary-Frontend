@@ -1,14 +1,14 @@
 <template>
   <main>
-    <Bar></Bar>
+    <profile-layout />
   </main>
 </template>
 
 <script>
-import Bar from "../components/navigation/Bar.vue";
+import ProfileLayout from "../components/profile/ProfileLayout.vue";
 export default {
-  name: "Main",
-  components: { Bar },
+  name: "Profile",
+  components: { ProfileLayout },
 };
 </script>
 

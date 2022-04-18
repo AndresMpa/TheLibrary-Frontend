@@ -1,14 +1,14 @@
 <template>
   <main>
-    <Bar></Bar>
+    <history-layout />
   </main>
 </template>
 
 <script>
-import Bar from "../components/navigation/Bar.vue";
+import HistoryLayout from "../components/history/HistoryLayout.vue";
 export default {
-  name: "Main",
-  components: { Bar },
+  name: "History",
+  components: { HistoryLayout },
 };
 </script>
 

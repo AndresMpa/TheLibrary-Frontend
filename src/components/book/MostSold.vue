@@ -27,22 +27,26 @@ export default {
     return {
       books: [
         {
-          img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
+          //img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
+          img: "https://www.latercera.com/resizer/LTN5QsS3yo6u_oNmub2HNEcv-f4=/900x600/smart/arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/3QOVU47ZLRATTJQREKLUL5BBRA.jpg",
           name: "Antologia de Terror",
           author: "LoveCraft",
         },
         {
-          img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
+          //img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
+          img: "https://www.latercera.com/resizer/LTN5QsS3yo6u_oNmub2HNEcv-f4=/900x600/smart/arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/3QOVU47ZLRATTJQREKLUL5BBRA.jpg",
           name: "Mago de oz el mundo perdido",
           author: "Oscar de la Frielda",
         },
         {
-          img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
+          //img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
+          img: "https://www.latercera.com/resizer/LTN5QsS3yo6u_oNmub2HNEcv-f4=/900x600/smart/arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/3QOVU47ZLRATTJQREKLUL5BBRA.jpg",
           name: "Como torturar estudiantes",
           author: "Felipe Castillo",
         },
         {
-          img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
+          //img: "https://raw.githubusercontent.com/Dreamland-Code/TheLibrary-Frontend/main/src/assets/parallax.jpg?token=GHSAT0AAAAAABQ7JU4IZO3WME5V2SH3DSHSYS4WGKA",
+          img: "https://www.latercera.com/resizer/LTN5QsS3yo6u_oNmub2HNEcv-f4=/900x600/smart/arc-anglerfish-arc2-prod-copesa.s3.amazonaws.com/public/3QOVU47ZLRATTJQREKLUL5BBRA.jpg",
           name: "Caminar por las cuerdas de la vida, tomo 1",
           author: "Per Turnum",
         },

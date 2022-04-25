@@ -10,7 +10,7 @@
 
     <template v-slot:actions>
       <v-btn text color="green accent-4"> Guardar </v-btn>
-      <v-btn text color="primary accent-4"> Expandir </v-btn>
+      <v-btn text color="secondary accent-4"> Expandir </v-btn>
     </template>
   </v-banner>
 </template>

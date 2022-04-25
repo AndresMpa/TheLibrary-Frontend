@@ -4,9 +4,14 @@
     transition="dialog-top-transition"
     max-width="800"
   >
-    <v-card v-for="(item, i) in items" :key="i" cols="12" color="primary" dark>
+    <v-card
+      v-for="(item, index) in items"
+      color="secondary"
+      :key="index"
+      cols="12"
+      dark
+    >
       <div class="d-flex flex-no-wrap">
-
         <v-avatar class="ma-3" size="250" tile>
           <v-img :src="item.src"></v-img>
         </v-avatar>

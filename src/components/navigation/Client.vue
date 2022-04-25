@@ -1,7 +1,7 @@
 <template>
   <v-menu transition="slide-x-transition" bottom right>
     <template v-slot:activator="{ on, attrs }">
-      <v-btn color="primary" v-bind="attrs" v-on="on" dark>
+      <v-btn color="secondary" v-bind="attrs" v-on="on" dark>
         <v-avatar rounded size="75">
           <img src="../../assets/logo.png" alt="UTP" />
         </v-avatar>

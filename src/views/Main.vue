@@ -1,22 +1,31 @@
 <template>
-  <main>
-    <Bar />
+  <main v-if="this.$store.state.manager">
+    <ClientBar />
+    <content-loader />
+  </main>
+  <main v-else>
     <content-loader />
   </main>
 </template>
 
 <script>
-import Bar from "../components/navigation/Bar.vue";
 import ContentLoader from "../components/util/ContentLoader.vue";
+import ClientBar from "../components/navigation/ClientBar.vue";
 export default {
   name: "Main",
-  components: { Bar, ContentLoader },
+  components: { ClientBar, ContentLoader },
 
   methods: {
     sendMain() {
-      this.$router.push({ name: "Store" }).catch(() => {
-        console.log("Home");
-      });
+      if (this.$store.state.manager) {
+        this.$router.push({ name: "Store" }).catch(() => {
+          console.log("Home");
+        });
+      } else {
+        this.$router.push({ name: "Manager" }).catch(() => {
+          console.log("Manager");
+        });
+      }
     },
   },
   //Hooks

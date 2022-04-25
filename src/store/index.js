@@ -13,6 +13,7 @@ export default new Vuex.Store({
     shoppingBag: false,
     seeBook: false,
     currentPage: 1,
+    manager: true,
   },
   mutations: {
     setShoppingBar(state, shopping) {

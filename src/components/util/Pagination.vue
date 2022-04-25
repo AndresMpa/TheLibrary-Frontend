@@ -6,6 +6,7 @@
           <v-container class="max-width">
             <v-pagination
               :total-visible="6"
+              color="secondary"
               :length="total"
               v-model="page"
               class="my-4"

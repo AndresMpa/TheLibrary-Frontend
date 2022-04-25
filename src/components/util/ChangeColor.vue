@@ -1,5 +1,5 @@
 <template>
-  <v-btn icon @click="changeTheme">
+  <v-btn icon @click="changeTheme" color="primary">
     <v-icon v-if="this.$vuetify.theme.dark"> mdi-weather-night </v-icon>
     <v-icon v-else> mdi-weather-sunny </v-icon>
   </v-btn>

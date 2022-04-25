@@ -48,13 +48,23 @@ const routes = [
   {
     path: "/management",
     name: "Management",
-    component: () => import("../views/Management.vue"),
-  },
+    component: Main,
 
-  {
-    path: "/add-book",
-    name: "AddBook",
-    component: () => import("../views/AddBook.vue"),
+    meta: {
+      public: true,
+    },
+    children: [
+      {
+        path: "/manager",
+        name: "Manager",
+        component: () => import("../views/Manager.vue"),
+      },
+      {
+        path: "/add-book",
+        name: "AddBook",
+        component: () => import("../views/AddBook.vue"),
+      },
+    ],
   },
 
   // Login

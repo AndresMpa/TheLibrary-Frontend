@@ -55,7 +55,7 @@ export default {
   methods: {
     validateAccount() {
       if (this.name === "Admin" && this.password === "123") {
-        this.$store.dispatch("isManager");
+        this.$store.dispatch("isManager", true);
         this.$router.push({ name: "Manager" }).catch(() => {
           console.log("Admin");
         });

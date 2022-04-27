@@ -72,8 +72,8 @@ export default new Vuex.Store({
       commit("setPageNumber", number);
     },
 
-    isManager({ commit }) {
-      commit("setManager", !this.state.manager);
+    isManager({ commit }, state) {
+      commit("setManager", state);
     },
   },
   modules: {},

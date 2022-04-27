@@ -65,7 +65,7 @@ export default {
           name: "Editar perfil",
         },
         {
-          to: "Buying",
+          to: "Logout",
           icon: "mdi-close",
           name: "Cerrar sesión",
         },

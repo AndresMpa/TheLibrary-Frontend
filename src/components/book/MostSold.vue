@@ -4,7 +4,7 @@
       <v-parallax :src="book.img" height="300" dark>
         <v-row align="center" justify="center">
           <v-col cols="12">
-            <v-card class="text-center mx-auto" color="secondary" outlined dark>
+            <v-card class="text-center mx-auto" color="alter" outlined dark>
               <v-card-title
                 class="clickable text-h4 justify-center font-weight-thin"
                 @click="seeBook()"

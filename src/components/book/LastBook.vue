@@ -7,7 +7,7 @@
   >
     <v-card
       v-for="(item, index) in items"
-      color="secondary"
+      color="alter"
       :key="index"
       cols="12"
       dark
@@ -33,8 +33,10 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn class="ml-2" rounded small> Reservar </v-btn>
-            <v-btn class="ml-2" rounded small color="secondary"> Cerrar </v-btn>
+            <v-btn class="ml-2" rounded small color="alert"> Reservar </v-btn>
+            <v-btn class="ml-2" rounded small color="signs" @click="closeBook">
+              Cerrar
+            </v-btn>
           </v-card-actions>
         </div>
       </div>
@@ -54,7 +56,9 @@ export default {
     ],
   }),
   methods: {
-    closeBook() {},
+    closeBook() {
+      this.$store.dispatch("seeBook");
+    },
   },
 };
 </script>

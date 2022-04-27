@@ -4,7 +4,8 @@
       v-for="(book, index) in stock"
       class="d-flex child-flex"
       :key="index"
-      cols="3"
+      sm="12"
+      md="3"
     >
       <Book :information="book"></Book>
     </v-col>

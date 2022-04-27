@@ -2,8 +2,8 @@
   <v-card :loading="loading" class="mx-auto my-3" max-width="350">
     <template slot="progress">
       <v-progress-linear
-        color="secondary"
         indeterminate
+        color="main"
         height="10"
       ></v-progress-linear>
     </template>
@@ -25,7 +25,7 @@
           half-icon="mdi-heart-half-full"
           full-icon="mdi-heart"
           half-increments
-          color="secondary"
+          color="alert"
           size="14"
           readonly
           dense
@@ -42,7 +42,7 @@
         <v-expansion-panel-header disable-icon-rotate>
           Resumen
           <template v-slot:actions>
-            <v-icon color="secondary"> mdi-bookshelf</v-icon>
+            <v-icon color="detail"> mdi-bookshelf</v-icon>
           </template>
         </v-expansion-panel-header>
         <v-expansion-panel-content>
@@ -54,7 +54,7 @@
     <v-divider class="mx-4"></v-divider>
 
     <v-card-actions>
-      <v-btn color="secondary" text @click="reserve"> Reservar </v-btn>
+      <v-btn color="main" text @click="reserve"> Reservar </v-btn>
     </v-card-actions>
   </v-card>
 </template>

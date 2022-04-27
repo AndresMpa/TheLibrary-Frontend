@@ -1,5 +1,9 @@
 <template>
-  <v-toolbar color="main">
+  <v-app-bar
+    app
+    sticky
+    color="main"
+  >
     <v-toolbar-title>
       <router-menu :menu="menu" />
     </v-toolbar-title>
@@ -13,7 +17,7 @@
     <change-color></change-color>
 
     <router-menu :menu="account" />
-  </v-toolbar>
+  </v-app-bar>
 </template>
 
 <script>
@@ -76,7 +80,7 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.search {
-  margin-top: 800px;
+.fixed {
+  position: fixed;
 }
 </style>

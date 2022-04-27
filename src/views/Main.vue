@@ -1,5 +1,5 @@
 <template>
-  <main v-if="this.$store.state.manager">
+  <main v-if="!this.$store.state.manager">
     <ClientBar />
     <content-loader />
   </main>
@@ -17,7 +17,7 @@ export default {
 
   methods: {
     sendMain() {
-      if (this.$store.state.manager) {
+      if (!this.$store.state.manager) {
         this.$router.push({ name: "Store" }).catch(() => {
           console.log("Home");
         });

@@ -12,16 +12,16 @@ export default new Vuex.Store({
     },
 
     user: {
-      name: "AndresMpa"
+      name: "AndresMpa",
     },
 
     shoppingBag: false,
-    
+
     seeBook: false,
-    
+
     currentPage: 1,
-    
-    manager: true,
+
+    manager: false,
   },
   mutations: {
     setShoppingBar(state, shopping) {
@@ -41,6 +41,9 @@ export default new Vuex.Store({
     },
     setPageNumber(state, pageNumber) {
       state.currentPage = pageNumber;
+    },
+    setManager(state, status) {
+      state.manager = status;
     },
   },
   actions: {
@@ -66,8 +69,12 @@ export default new Vuex.Store({
     },
 
     updatePage({ commit }, number) {
-      commit("setPageNumber", number)
-    }
+      commit("setPageNumber", number);
+    },
+
+    isManager({ commit }) {
+      commit("setManager", !this.state.manager);
+    },
   },
   modules: {},
 });

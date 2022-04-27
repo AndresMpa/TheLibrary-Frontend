@@ -1,5 +1,5 @@
 <template>
-  <v-list dense>
+  <v-list nav dense>
     <div v-for="(path, index) in routes" :key="index">
       <v-list-item :to="{ name: path.to }">
         <v-list-item-action>

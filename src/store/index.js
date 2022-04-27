@@ -15,6 +15,8 @@ export default new Vuex.Store({
       name: "AndresMpa",
     },
 
+    drawer: false,
+
     shoppingBag: false,
 
     seeBook: false,
@@ -41,6 +43,9 @@ export default new Vuex.Store({
     },
     setPageNumber(state, pageNumber) {
       state.currentPage = pageNumber;
+    },
+    setDrawer(state, drawer) {
+      state.drawer = drawer;
     },
     setManager(state, status) {
       state.manager = status;
@@ -74,6 +79,10 @@ export default new Vuex.Store({
 
     isManager({ commit }, state) {
       commit("setManager", state);
+    },
+
+    showDrawer({ commit }, state) {
+      commit("setDrawer", state);
     },
   },
   modules: {},

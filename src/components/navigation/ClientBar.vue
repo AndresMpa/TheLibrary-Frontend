@@ -1,5 +1,5 @@
 <template>
-  <v-app-bar app sticky color="main">
+  <v-app-bar app color="main">
     <v-toolbar-title>
       <router-menu :menu="menu" />
     </v-toolbar-title>

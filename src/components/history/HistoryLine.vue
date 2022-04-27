@@ -1,21 +1,21 @@
 <template>
-  <v-timeline>
+  <v-timeline align-top dense>
     <v-timeline-item
       v-for="(item, index) in items"
       :color="item.status"
       :key="index"
       small
     >
-      <template v-slot:opposite>
-        <span
-          :class="`headline font-weight-bold ${item.status}--text`"
-          v-text="item.date"
-        ></span>
-      </template>
-      <div class="py-4">
-        <p :class="`${item.status}--text`">
+      <div>
+        <span :class="`headline ${item.status}--text`">
           {{ item.title }}
-        </p>
+        </span>
+        <p
+          :class="`font-weight-bold ${item.status}--text`"
+          v-text="item.date"
+        ></p>
+      </div>
+      <div class="py-4">
         <p class="headline font-weight-light mb-4">
           {{ item.author }}
         </p>
@@ -30,7 +30,7 @@
 
 <script>
 export default {
-  name: "Scroller",
+  name: "HistoryLine",
   data: () => ({
     items: [
       {

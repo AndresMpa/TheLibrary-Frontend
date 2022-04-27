@@ -1,5 +1,6 @@
 <template>
   <v-text-field
+    dark
     clearable
     hide-details
     class="search"

@@ -3,6 +3,7 @@
     v-model="this.$store.state.seeBook"
     transition="dialog-top-transition"
     max-width="800"
+    persistent
   >
     <v-card
       v-for="(item, index) in items"
@@ -33,6 +34,7 @@
 
           <v-card-actions>
             <v-btn class="ml-2" rounded small> Reservar </v-btn>
+            <v-btn class="ml-2" rounded small color="secondary"> Cerrar </v-btn>
           </v-card-actions>
         </div>
       </div>
@@ -51,5 +53,8 @@ export default {
       },
     ],
   }),
+  methods: {
+    closeBook() {},
+  },
 };
 </script>

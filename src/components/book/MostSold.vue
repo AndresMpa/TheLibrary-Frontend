@@ -3,16 +3,18 @@
     <v-carousel-item v-for="(book, index) in books" :key="index">
       <v-parallax :src="book.img" height="300" dark>
         <v-row align="center" justify="center">
-          <v-col class="text-center" cols="12">
-            <h1
-              class="clickable text-h4 font-weight-thin mb-4"
-              @click="seeBook()"
-            >
-              {{ book.name }}
-            </h1>
-            <h4 class="clickable subheading" @click="seeBook()">
-              {{ book.author }}
-            </h4>
+          <v-col cols="12">
+            <v-card class="text-center mx-auto" color="secondary" outlined dark>
+              <v-card-title
+                class="clickable text-h4 justify-center font-weight-thin"
+                @click="seeBook()"
+              >
+                {{ book.name }}
+              </v-card-title>
+              <v-card-text class="clickable subheading" @click="seeBook()">
+                {{ book.author }}
+              </v-card-text>
+            </v-card>
           </v-col>
         </v-row>
       </v-parallax>

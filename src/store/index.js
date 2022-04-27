@@ -10,9 +10,17 @@ export default new Vuex.Store({
       query: "",
       filter: [],
     },
+
+    user: {
+      name: "AndresMpa"
+    },
+
     shoppingBag: false,
+    
     seeBook: false,
+    
     currentPage: 1,
+    
     manager: true,
   },
   mutations: {

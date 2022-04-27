@@ -1,5 +1,5 @@
 <template>
-  <v-container fluid>
+  <div>
     <v-app-bar color="main" dark app>
       <v-app-bar-nav-icon @click.stop="drawer = !drawer"></v-app-bar-nav-icon>
 
@@ -17,15 +17,15 @@
     <v-navigation-drawer
       :clipped="$vuetify.breakpoint.lgAndUp"
       v-model="drawer"
+      temporary
       absolute
-      app
     >
       <v-card>
         <v-card-title> UTP </v-card-title>
       </v-card>
       <navigator :routes="managerPath" />
     </v-navigation-drawer>
-  </v-container>
+  </div>
 </template>
 
 <script>

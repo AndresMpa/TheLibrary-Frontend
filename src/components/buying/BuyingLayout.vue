@@ -1,9 +1,9 @@
 <template>
   <v-row dense>
-    <v-col md="4" sm="12">
+    <v-col md="5" sm="12" xs="12">
       <bill />
     </v-col>
-    <v-col md="8" sm="12">
+    <v-col md="7" sm="12" xs="12">
       <bag />
     </v-col>
   </v-row>

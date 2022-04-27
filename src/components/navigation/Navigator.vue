@@ -16,7 +16,7 @@
 export default {
   name: "Navigator",
   props: {
-    routes: Object,
+    routes: Array,
   },
 };
 </script>

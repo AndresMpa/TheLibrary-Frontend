@@ -1,6 +1,12 @@
 <template>
   <div class="bag">
-    <v-card v-for="(item, index) in items" color="alter" :key="index" class="mb-5" dark>
+    <v-card
+      v-for="(item, index) in items"
+      color="alter"
+      :key="index"
+      class="mb-5"
+      dark
+    >
       <div class="d-flex flex-no-wrap">
         <v-avatar class="ma-3" size="150" tile>
           <v-img :src="item.src"></v-img>
@@ -22,7 +28,13 @@
           </v-card-text>
 
           <v-card-actions>
-            <v-btn small rounded class="ml-2" color="signs" @click="closeBook">
+            <v-btn
+              small
+              rounded
+              class="ml-2"
+              color="signs"
+              @click="removeBook(index)"
+            >
               Quitar
             </v-btn>
           </v-card-actions>
@@ -64,6 +76,11 @@ export default {
       },
     ],
   }),
+  methods: {
+    removeBook(book) {
+      console.log(book);
+    },
+  },
 };
 </script>
 

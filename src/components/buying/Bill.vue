@@ -67,18 +67,22 @@
     <v-divider></v-divider>
 
     <v-card-actions class="d-flex mt-5 justify-center">
-      <v-btn small class="red" dark>
-        <v-icon> mdi-broom </v-icon>
-        Cancelar
-      </v-btn>
-      <v-btn small class="green" dark>
-        <v-icon> mdi-cash-multiple </v-icon>
-        Pagar
-      </v-btn>
-      <v-btn small class="blue" dark>
-        <v-icon> mdi-book-plus </v-icon>
-        Agregar
-      </v-btn>
+      <v-row dense>
+        <v-col class="mx-auto">
+          <v-btn small class="red ma-1" dark>
+            <v-icon> mdi-broom </v-icon>
+            Cancelar
+          </v-btn>
+          <v-btn small class="green ma-1" dark>
+            <v-icon> mdi-cash-multiple </v-icon>
+            Pagar
+          </v-btn>
+          <v-btn small class="blue ma-1" dark>
+            <v-icon> mdi-book-plus </v-icon>
+            Agregar
+          </v-btn>
+        </v-col>
+      </v-row>
     </v-card-actions>
   </v-card>
 </template>

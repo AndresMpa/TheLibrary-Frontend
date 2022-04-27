@@ -1,20 +1,18 @@
 <template>
-  <v-app-bar
-    app
-    sticky
-    color="main"
-  >
+  <v-app-bar app sticky color="main">
     <v-toolbar-title>
       <router-menu :menu="menu" />
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
 
-    <search></search>
+    <search v-if="this.$vuetify.breakpoint.width > 280"></search>
 
-    <shopping-bag></shopping-bag>
+    <v-spacer></v-spacer>
 
-    <change-color></change-color>
+    <shopping-bag v-if="this.$vuetify.breakpoint.name !== 'xs'"></shopping-bag>
+
+    <change-color v-if="this.$vuetify.breakpoint.name !== 'xs'"></change-color>
 
     <router-menu :menu="account" />
   </v-app-bar>

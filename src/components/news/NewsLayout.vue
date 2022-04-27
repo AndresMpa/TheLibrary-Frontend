@@ -6,7 +6,7 @@
     >
       <Banner :information="item" />
     </article>
-    <Pagination :page="page" :total="information.length" />
+    <Pagination :total="information.length" />
   </section>
 </template>
 

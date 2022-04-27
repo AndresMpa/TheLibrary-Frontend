@@ -6,9 +6,9 @@
           <v-container class="max-width">
             <v-pagination
               :total-visible="6"
-              color="secondary"
               :length="total"
               v-model="page"
+              color="alter"
               class="my-4"
               circle
             ></v-pagination>

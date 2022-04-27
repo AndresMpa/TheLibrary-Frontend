@@ -1,5 +1,5 @@
 <template>
-  <v-btn icon @click="handleBag" color="primary">
+  <v-btn icon @click="handleBag" dark>
     <v-icon v-if="!this.$store.state.shoppingBag"> mdi-shopping </v-icon>
     <v-icon v-else> mdi-shopping-search </v-icon>
   </v-btn>

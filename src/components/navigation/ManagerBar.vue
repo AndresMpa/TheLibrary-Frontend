@@ -40,24 +40,14 @@ export default {
       drawer: false,
       managerPath: [
         {
-          to: "Store",
-          icon: "mdi-bookshelf",
-          name: "Libros",
+          to: "Manager",
+          icon: "mdi-manjaro",
+          name: "Administración",
         },
         {
-          to: "News",
-          icon: "mdi-seal-variant",
-          name: "Novedades",
-        },
-        {
-          to: "History",
-          icon: "mdi-script",
-          name: "Historial de compras",
-        },
-        {
-          to: "Buying",
-          icon: "mdi-dolly",
-          name: "Compras",
+          to: "AddBook",
+          icon: "mdi-plus-box-multiple",
+          name: "Agregar libros",
         },
       ],
       account: {

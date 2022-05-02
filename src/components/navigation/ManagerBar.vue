@@ -45,7 +45,7 @@ export default {
           name: "Gestión de inventario",
         },
         {
-          to: "AddBook",
+          to: "CrudBook",
           icon: "mdi-plus-box-multiple",
           name: "Gestión de ejemplares",
         },

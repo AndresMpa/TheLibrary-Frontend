@@ -59,9 +59,9 @@ const routes = [
         component: () => import("../views/Manager.vue"),
       },
       {
-        path: "/add-book",
-        name: "AddBook",
-        component: () => import("../views/AddBook.vue"),
+        path: "/crud-book",
+        name: "CrudBook",
+        component: () => import("../views/CRUDBook.vue"),
       },
     ],
   },

@@ -42,12 +42,12 @@ export default {
         {
           to: "Manager",
           icon: "mdi-manjaro",
-          name: "Administración",
+          name: "Gestión de inventario",
         },
         {
           to: "AddBook",
           icon: "mdi-plus-box-multiple",
-          name: "Agregar libros",
+          name: "Gestión de ejemplares",
         },
       ],
       account: {

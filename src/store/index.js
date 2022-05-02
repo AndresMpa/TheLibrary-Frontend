@@ -25,7 +25,7 @@ export default new Vuex.Store({
 
     // Manager
 
-    manager: true,
+    manager: false,
   },
   mutations: {
     setShoppingBar(state, shopping) {

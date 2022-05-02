@@ -70,7 +70,7 @@ export default {
       return Math.floor(Math.random() * length);
     },
     sendMain() {
-      this.$store.dispatch("setManager", false);
+      this.$store.dispatch("isManager", false);
       this.$router.push({ name: "Main" }).catch(() => {
         console.log("Main");
       });

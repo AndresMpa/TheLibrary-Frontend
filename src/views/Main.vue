@@ -1,10 +1,10 @@
 <template>
   <main v-if="this.$store.state.manager">
-    <ClientBar />
+    <manager-bar />
     <content-loader />
   </main>
   <main v-else>
-    <manager-bar />
+    <ClientBar />
     <content-loader />
   </main>
 </template>
@@ -19,12 +19,12 @@ export default {
   methods: {
     sendMain() {
       if (this.$store.state.manager) {
-        this.$router.push({ name: "Store" }).catch(() => {
-          console.log("Home");
-        });
-      } else {
         this.$router.push({ name: "Manager" }).catch(() => {
           console.log("Manager");
+        });
+      } else {
+        this.$router.push({ name: "Store" }).catch(() => {
+          console.log("Home");
         });
       }
     },

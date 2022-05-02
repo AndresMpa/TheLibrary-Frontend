@@ -33,7 +33,6 @@ export default {
 
 <style lang="css" scoped>
 .search {
-  margin-top: 800px;
   color: white;
 }
 </style>

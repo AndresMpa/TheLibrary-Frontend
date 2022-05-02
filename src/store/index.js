@@ -23,6 +23,8 @@ export default new Vuex.Store({
 
     currentPage: 1,
 
+    // Manager
+
     manager: false,
   },
   mutations: {
@@ -47,6 +49,9 @@ export default new Vuex.Store({
     setDrawer(state, drawer) {
       state.drawer = drawer;
     },
+
+    // Manager
+
     setManager(state, status) {
       state.manager = status;
     },

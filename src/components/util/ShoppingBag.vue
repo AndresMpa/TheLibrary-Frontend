@@ -1,5 +1,5 @@
 <template>
-  <v-btn icon @click="handleBag" dark>
+  <v-btn icon @click="openBag" dark>
     <v-icon v-if="!this.$store.state.shoppingBag"> mdi-shopping </v-icon>
     <v-icon v-else> mdi-shopping-search </v-icon>
   </v-btn>
@@ -9,8 +9,7 @@
 export default {
   name: "ShoppingBag",
   methods: {
-    handleBag() {
-      console.log(this.$store.state.shoppingBag);
+    openBag() {
       this.$store.dispatch("changeShoppingBag", !this.$store.state.shoppingBag);
     },
   },

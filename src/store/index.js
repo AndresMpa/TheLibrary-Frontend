@@ -8,7 +8,8 @@ export default new Vuex.Store({
     // Validator
     manager: false,
     user: {
-      information: {},
+      information: {
+      },
       book: [],
     },
 

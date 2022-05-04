@@ -25,8 +25,9 @@ import RouterMenu from "./RouterMenu.vue";
 import Search from "./Search.vue";
 export default {
   name: "ClientBar",
+  components: { ChangeColor, ShoppingBag, Search, RouterMenu },
   data: () => ({
-    menu: {
+    menuTemplate: {
       icon: "mdi-menu",
       path: [
         {
@@ -51,7 +52,7 @@ export default {
         },
       ],
     },
-    account: {
+    accountTemplate: {
       icon: "mdi-account",
       path: [
         {
@@ -72,8 +73,23 @@ export default {
       ],
     },
   }),
+  computed: {
+    menu() {
+      let paths = { ...this.menuTemplate };
+      if (this.$store.state.user.information) {
+        paths.path.splice(2, 3);
+      }
+      return paths;
+    },
+    account() {
+      let paths = { ...this.accountTemplate };
+      if (this.$store.state.user.information) {
+        paths.path.splice(1, 1);
+      }
 
-  components: { ChangeColor, ShoppingBag, Search, RouterMenu },
+      return paths;
+    },
+  },
 };
 </script>
 

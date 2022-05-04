@@ -5,32 +5,42 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
+    // Validator
+    manager: false,
+    user: {
+      information: {},
+      book: [],
+    },
+
     search: {
       lastQuery: "",
-      query: "",
       filter: [],
+      query: "",
     },
 
-    user: {
-      name: "AndresMpa",
-    },
-
-    drawer: false,
-
-    shoppingBag: false,
-
-    seeBook: false,
-
+    // Paginator
     currentPage: 1,
 
-    // Manager
-
-    manager: false,
+    // Dialogs
+    shoppingBag: false,
+    seeBook: false,
+    dawer: false,
   },
   mutations: {
-    setShoppingBar(state, shopping) {
-      state.shoppingBag = shopping;
+    // User
+    setUser(state, name) {
+      state.user.information = name
     },
+    addShoppingBag(state, book) {
+      state.user.book.push(book);
+    },
+
+    // Validator
+    setManager(state, status) {
+      state.manager = status;
+    },
+
+    //Search
     setSearchLastQuery(state, lastQuery) {
       state.search.lastQuery = lastQuery;
     },
@@ -40,26 +50,38 @@ export default new Vuex.Store({
     setSearchFilter(state, filter) {
       state.search.filter.push(filter);
     },
+
+    //Dialogs
+    setShoppingBag(state, shopping) {
+      state.shoppingBag = shopping;
+    },
     setBookStatus(state, status) {
       state.seeBook = status;
-    },
-    setPageNumber(state, pageNumber) {
-      state.currentPage = pageNumber;
     },
     setDrawer(state, drawer) {
       state.drawer = drawer;
     },
 
-    // Manager
-
-    setManager(state, status) {
-      state.manager = status;
+    // Paginator
+    setPageNumber(state, pageNumber) {
+      state.currentPage = pageNumber;
     },
   },
   actions: {
-    changeShoppingBag({ commit }, status) {
-      commit("setShoppingBar", status);
+    //User
+    setUser({ commit }, data) {
+      commit("setUser", data)
     },
+    handleShoppingBag({ commit }, item) {
+      commit("addShoppingBag", item)
+    },
+
+    //Validator
+    isManager({ commit }, state) {
+      commit("setManager", state);
+    },
+
+    //Search
     changeQuery({ commit }, query) {
       commit("setSearchLastQuery", this.state.search.query);
       commit("setSearchQuery", query);
@@ -74,20 +96,20 @@ export default new Vuex.Store({
       });
     },
 
+    // Dialogs
+    changeShoppingBag({ commit }, status) {
+      commit("setShoppingBag", status);
+    },
     seeBook({ commit }) {
       commit("setBookStatus", !this.state.seeBook);
     },
-
-    updatePage({ commit }, number) {
-      commit("setPageNumber", number);
-    },
-
-    isManager({ commit }, state) {
-      commit("setManager", state);
-    },
-
     showDrawer({ commit }, state) {
       commit("setDrawer", state);
+    },
+
+    // Paginator
+    updatePage({ commit }, number) {
+      commit("setPageNumber", number);
     },
   },
   modules: {},

@@ -20,15 +20,15 @@
     <v-card-text>
       <v-row align="center" class="mx-0">
         <v-rating
-          :value="information.rating"
-          empty-icon="mdi-heart-outline"
           half-icon="mdi-heart-half-full"
+          empty-icon="mdi-heart-outline"
           full-icon="mdi-heart"
           half-increments
+          dense
+          :value="information.rating"
           color="alert"
           size="14"
           readonly
-          dense
         ></v-rating>
 
         <div class="grey--text d-block ml-auto">
@@ -54,7 +54,7 @@
     <v-divider class="mx-4"></v-divider>
 
     <v-card-actions>
-      <v-btn color="main" text @click="reserve"> Reservar </v-btn>
+      <v-btn color="main" text @click="reserve(information)"> Reservar </v-btn>
     </v-card-actions>
   </v-card>
 </template>
@@ -71,9 +71,9 @@ export default {
     information: Object,
   },
   methods: {
-    reserve() {
+    reserve(item) {
       this.loading = true;
-
+      this.$store.dispatch("handleShoppingBag", item);
       setTimeout(() => (this.loading = false), 2000);
     },
   },

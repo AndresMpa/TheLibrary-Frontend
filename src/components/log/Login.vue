@@ -24,7 +24,7 @@
                   ></v-text-field>
 
                   <v-card-actions class="mt-5">
-                    <v-btn small @click="validateAccount()">
+                    <v-btn small @click="logUser()">
                       <v-icon> mdi-account </v-icon>
                       Ingresar
                     </v-btn>
@@ -53,8 +53,14 @@ export default {
     errors: [(value) => !!value || "Este campo es necesario"],
   }),
   methods: {
+    logUser() {
+      this.$store.dispatch("setUser", {
+        name: this.name,
+      })
+      this.validateAccount()
+    },
     validateAccount() {
-      if (this.name === "Admin" && this.password === "123") {
+      if (this.$store.state.user.information.name === "Admin") {
         this.$store.dispatch("isManager", true);
         this.$router.push({ name: "Manager" }).catch(() => {
           console.log("Admin");

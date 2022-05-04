@@ -71,6 +71,7 @@ export default {
     },
     sendMain() {
       this.$store.dispatch("isManager", false);
+      this.$store.dispatch("cleanUserSession", false);
       this.$router.push({ name: "Main" }).catch(() => {
         console.log("Main");
       });

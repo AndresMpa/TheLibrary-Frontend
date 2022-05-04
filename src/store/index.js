@@ -32,6 +32,11 @@ export default new Vuex.Store({
     setUser(state, data) {
       state.user.information = data;
     },
+    clearUser(state) {
+      state.user.information = {};
+      state.user.reserved = [];
+      state.user.book = [];
+    },
     addReservation(state, item) {
       state.user.reserved.push(item);
     },
@@ -75,6 +80,9 @@ export default new Vuex.Store({
     //User
     setUser({ commit }, data) {
       commit("setUser", data);
+    },
+    cleanUserSession({ commit }) {
+      commit("clearUser");
     },
     handleShoppingBag({ commit }, item) {
       if (item[1] === "buy") {

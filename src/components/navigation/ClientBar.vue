@@ -1,7 +1,8 @@
 <template>
-  <v-app-bar app color="main">
-    <v-toolbar-title>
+  <v-app-bar app color="main" dark>
+    <v-toolbar-title class="font-weight-thin">
       <router-menu :menu="menu" />
+      {{ this.$store.state.user.information.name }}
     </v-toolbar-title>
 
     <v-spacer></v-spacer>
@@ -76,17 +77,16 @@ export default {
   computed: {
     menu() {
       let paths = { ...this.menuTemplate };
-      if (this.$store.state.user.information) {
+      if (this.$store.state.user.information.name == undefined) {
         paths.path.splice(2, 3);
       }
       return paths;
     },
     account() {
       let paths = { ...this.accountTemplate };
-      if (this.$store.state.user.information) {
+      if (this.$store.state.user.information.name == undefined) {
         paths.path.splice(1, 1);
       }
-
       return paths;
     },
   },

@@ -62,6 +62,7 @@
 
 <script>
 import Images from "./Images.vue";
+import Swal from "sweetalert2";
 export default {
   name: "Book",
   components: { Images },
@@ -81,6 +82,13 @@ export default {
       this.loading = true;
       if (this.$store.state.user.reserved.length < 10) {
         this.$store.dispatch("handleShoppingBag", [item, "reserved"]);
+      } else {
+        Swal.fire({
+          title: "¡Demasiadas reservas!",
+          text: "Ya has reservado demasiado libros, si deseas reservar más ejemplares compra o elimina algunas reversas",
+          icon: "error",
+          confirmButtonText: "Cool",
+        });
       }
       setTimeout(() => (this.loading = false), 2000);
     },

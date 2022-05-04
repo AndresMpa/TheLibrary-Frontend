@@ -73,12 +73,21 @@ export default {
     information: Object,
   },
   methods: {
+    validateAccount() {
+      if(this.$store.state.user.information.name === undefined) {
+        this.$router.push({ name: "Login" }).catch(() => {
+          console.log("Login");
+        });
+      }
+    },
     buy(item) {
+      this.validateAccount()
       this.loading = true;
       this.$store.dispatch("handleShoppingBag", [item, "buy"]);
       setTimeout(() => (this.loading = false), 2000);
     },
     reserve(item) {
+      this.validateAccount()
       this.loading = true;
       if (this.$store.state.user.reserved.length < 10) {
         this.$store.dispatch("handleShoppingBag", [item, "reserved"]);

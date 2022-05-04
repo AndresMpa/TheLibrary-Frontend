@@ -15,15 +15,12 @@
         <div>
           <v-card-title class="text-h5" v-text="item.title"> </v-card-title>
 
-          <v-card-subtitle v-text="item.artist"></v-card-subtitle>
+          <v-card-subtitle v-text="item.author"></v-card-subtitle>
           <v-card-text>
             <div class="text-subtitle-1">Resumen</div>
 
             <div>
-              Este libro es una guía exhaustiva para adentrarse en los
-              siniestros bosques que alberga el alma del escritor, sus relatos
-              expresan la soledad y la pequeñez de la condición humana en un
-              universo infinito
+              {{ item.resumen }}
             </div>
           </v-card-text>
 
@@ -52,27 +49,37 @@ export default {
       {
         src: "../../assets/example_2.jpg",
         title: "Antología de terror",
-        artist: "H. P LoveCraft",
+        author: "H. P LoveCraft",
+        resumen:
+          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
       },
       {
         src: "../../assets/example_2.jpg",
         title: "Antología de terror",
-        artist: "H. P LoveCraft",
+        author: "H. P LoveCraft",
+        resumen:
+          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
       },
       {
         src: "../../assets/example_2.jpg",
         title: "Antología de terror",
-        artist: "H. P LoveCraft",
+        author: "H. P LoveCraft",
+        resumen:
+          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
       },
       {
         src: "../../assets/example_2.jpg",
         title: "Antología de terror",
-        artist: "H. P LoveCraft",
+        author: "H. P LoveCraft",
+        resumen:
+          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
       },
       {
         src: "../../assets/example_2.jpg",
         title: "Antología de terror",
-        artist: "H. P LoveCraft",
+        author: "H. P LoveCraft",
+        resumen:
+          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
       },
     ],
   }),

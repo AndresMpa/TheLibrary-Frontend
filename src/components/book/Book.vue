@@ -54,6 +54,7 @@
     <v-divider class="mx-4"></v-divider>
 
     <v-card-actions>
+      <v-btn color="alter" text @click="buy(information)"> Comprar </v-btn>
       <v-btn color="main" text @click="reserve(information)"> Reservar </v-btn>
     </v-card-actions>
   </v-card>
@@ -71,9 +72,16 @@ export default {
     information: Object,
   },
   methods: {
+    buy(item) {
+      this.loading = true;
+      this.$store.dispatch("handleShoppingBag", [item, "buy"]);
+      setTimeout(() => (this.loading = false), 2000);
+    },
     reserve(item) {
       this.loading = true;
-      this.$store.dispatch("handleShoppingBag", item);
+      if (this.$store.state.user.reserved.length < 10) {
+        this.$store.dispatch("handleShoppingBag", [item, "reserved"]);
+      }
       setTimeout(() => (this.loading = false), 2000);
     },
   },

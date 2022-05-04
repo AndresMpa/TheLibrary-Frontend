@@ -51,7 +51,7 @@ export default {
       {
         src: "https://librosenlinea.co/wp-content/uploads/2020/01/antologia.jpg",
         title: "Antología de terror",
-        artist: "H. P LoveCraft",
+        author: "H. P LoveCraft",
       },
     ],
   }),

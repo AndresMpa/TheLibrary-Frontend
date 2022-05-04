@@ -8,8 +8,8 @@ export default new Vuex.Store({
     // Validator
     manager: false,
     user: {
-      information: {
-      },
+      information: {},
+      reserved: [],
       book: [],
     },
 
@@ -29,11 +29,14 @@ export default new Vuex.Store({
   },
   mutations: {
     // User
-    setUser(state, name) {
-      state.user.information = name
+    setUser(state, data) {
+      state.user.information = data;
     },
-    addShoppingBag(state, book) {
-      state.user.book.push(book);
+    addReservation(state, item) {
+      state.user.reserved.push(item);
+    },
+    addShoppingBag(state, item) {
+      state.user.book.push(item);
     },
 
     // Validator
@@ -71,10 +74,14 @@ export default new Vuex.Store({
   actions: {
     //User
     setUser({ commit }, data) {
-      commit("setUser", data)
+      commit("setUser", data);
     },
     handleShoppingBag({ commit }, item) {
-      commit("addShoppingBag", item)
+      if (item[1] === "buy") {
+        commit("addShoppingBag", item[0]);
+      } else if (item[1] === "reserved") {
+        commit("addReservation", item[0]);
+      }
     },
 
     //Validator

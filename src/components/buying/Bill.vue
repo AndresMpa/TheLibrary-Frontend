@@ -6,7 +6,7 @@
         <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="Avatar" />
       </v-avatar>
       <span class="pl-2 heading">
-        {{ this.$store.state.user.name }}
+        {{ this.$store.state.user.information.name }}
       </span>
     </v-card-subtitle>
     <v-divider></v-divider>
@@ -19,9 +19,9 @@
           <h3>Valor a pagar</h3>
         </v-col>
       </v-row>
-      <div v-for="(index, product) in this.$store.state.products" :key="index">
+      <div v-for="(index, product) in this.$store.state.user.book" :key="index">
         <v-row dense>
-          <v-col> {{ product.name }} - {{ product.author }} </v-col>
+          <v-col> {{ product }} - {{ product.author }} </v-col>
           <v-col> {{ product.price }} </v-col>
         </v-row>
       </div>

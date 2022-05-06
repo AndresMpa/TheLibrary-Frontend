@@ -85,7 +85,7 @@ export default {
     account() {
       let paths = { ...this.accountTemplate };
       if (this.$store.state.user.information.name == undefined) {
-        paths.path.splice(1, 1);
+        paths.path.splice(1, 2);
       }
       return paths;
     },

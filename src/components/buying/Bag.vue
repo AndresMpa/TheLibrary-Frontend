@@ -1,7 +1,7 @@
 <template>
   <div class="bag">
     <v-card
-      v-for="(item, index) in items"
+      v-for="(item, index) in this.$store.state.user.book"
       color="alter"
       :key="index"
       class="mb-5"

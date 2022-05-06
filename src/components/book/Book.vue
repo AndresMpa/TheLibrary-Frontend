@@ -96,7 +96,7 @@ export default {
           title: "¡Demasiadas reservas!",
           text: "Ya has reservado demasiado libros, si deseas reservar más ejemplares compra o elimina algunas reversas",
           icon: "error",
-          confirmButtonText: "Cool",
+          confirmButtonText: "Entendido",
         });
       }
       setTimeout(() => (this.loading = false), 2000);

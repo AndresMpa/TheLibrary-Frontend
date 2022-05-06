@@ -1,6 +1,6 @@
 <template>
   <v-img
-    src="../../assets/example.jpg"
+    :src="book"
     class="grey lighten-2 image"
     :lazy-src="preload"
     aspect-ratio="1"

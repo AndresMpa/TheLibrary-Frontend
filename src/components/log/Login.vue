@@ -29,9 +29,14 @@
                       Ingresar
                     </v-btn>
 
-                    <v-btn small>
+                    <v-btn small @click="sendRegister()">
                       <v-icon> mdi-account-multiple-plus </v-icon>
                       Crear cuenta
+                    </v-btn>
+
+                    <v-btn small color="red" @click="sendMain()">
+                      <v-icon> mdi-close </v-icon>
+                      Cancelar
                     </v-btn>
                   </v-card-actions>
                 </v-card>
@@ -53,11 +58,21 @@ export default {
     errors: [(value) => !!value || "Este campo es necesario"],
   }),
   methods: {
+    sendRegister() {
+      this.$router.push({ name: "Register" }).catch(() => {
+        console.log("Register");
+      });
+    },
+    sendMain() {
+      this.$router.push({ name: "Main" }).catch(() => {
+        console.log("Client");
+      });
+    },
     logUser() {
       this.$store.dispatch("setUser", {
         name: this.name,
-      })
-      this.validateAccount()
+      });
+      this.validateAccount();
     },
     validateAccount() {
       if (this.$store.state.user.information.name === "Admin") {
@@ -66,9 +81,7 @@ export default {
           console.log("Admin");
         });
       } else {
-        this.$router.push({ name: "Main" }).catch(() => {
-          console.log("Client");
-        });
+        this.sendMain()
       }
     },
   },

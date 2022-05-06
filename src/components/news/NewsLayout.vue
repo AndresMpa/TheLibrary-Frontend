@@ -274,6 +274,17 @@ export default {
       ],
     ],
   }),
+  methods: {
+    handlePageInit() {
+      this.$store.dispatch("updatePage", 1);
+    },
+  },
+  beforeCreate() {
+    this.handlePageInit();
+  },
+  beforeDestroy() {
+    this.handlePageInit();
+  },
 };
 </script>
 

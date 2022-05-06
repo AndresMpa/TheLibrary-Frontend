@@ -1,10 +1,12 @@
 <template>
-  <h1>Register</h1>
+  <create-account/>
 </template>
 
 <script>
+import CreateAccount from '../components/log/CreateAccount.vue';
 export default {
   name: "Register",
+  components: { CreateAccount },
 };
 </script>
 

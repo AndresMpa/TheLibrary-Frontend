@@ -19,13 +19,13 @@ export default new Vuex.Store({
       query: "",
     },
 
-    // Paginator
-    currentPage: 1,
-
     // Dialogs
     shoppingBag: false,
     seeBook: false,
     dawer: false,
+
+    // Paginator
+    currentPage: 1,
   },
   mutations: {
     // User

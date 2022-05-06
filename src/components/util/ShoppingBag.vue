@@ -6,11 +6,27 @@
 </template>
 
 <script>
+import Swal from "sweetalert2";
 export default {
   name: "ShoppingBag",
   methods: {
     openBag() {
-      this.$store.dispatch("changeShoppingBag", !this.$store.state.shoppingBag);
+      if (this.$store.state.user.information.name === undefined) {
+        Swal.fire({
+          title: "Debes iniciar sesión",
+          text: "Hemos detectado que deseas iniciar una compra pero no tiene una sesión activa, por favor ingresa primero para poder gestionar tus compras",
+          icon: "info",
+          confirmButtonText: "Entendido",
+        });
+        this.$router.push({ name: "Login" }).catch(() => {
+          console.log("Login");
+        });
+      } else {
+        this.$store.dispatch(
+          "changeShoppingBag",
+          !this.$store.state.shoppingBag
+        );
+      }
     },
   },
 };

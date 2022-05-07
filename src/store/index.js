@@ -34,6 +34,12 @@ export default new Vuex.Store({
       state.user.reserved = [];
       state.user.book = [];
     },
+    removeBook(state, element) {
+      state.user.book.splice(element, element + 1);
+    },
+    clearBooks(state) {
+      state.user.book = [];
+    },
     addReservation(state, item) {
       state.user.reserved.push(item);
     },
@@ -75,12 +81,20 @@ export default new Vuex.Store({
     cleanUserSession({ commit }) {
       commit("clearUser");
     },
+
+    //Bag
     handleShoppingBag({ commit }, item) {
       if (item[1] === "buy") {
         commit("addShoppingBag", item[0]);
       } else if (item[1] === "reserved") {
         commit("addReservation", item[0]);
       }
+    },
+    removeBookFromBag({ commit }, item) {
+      commit("removeBook", item);
+    },
+    clearBag({ commit }) {
+      commit("clearBooks");
     },
 
     //Validator

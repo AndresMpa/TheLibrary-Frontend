@@ -15,34 +15,52 @@ const routes = [
     },
     children: [
       {
+        path: "/result",
+        name: "LastResult",
+        component: () => import("../views/Result.vue"),
+        meta: {
+          public: true,
+        },
+      },
+      {
         path: "/store",
         name: "Store",
         component: () => import("../views/Store.vue"),
+        meta: {
+          public: true,
+        },
       },
       {
         path: "/news",
         name: "News",
         component: () => import("../views/News.vue"),
+        meta: {
+          public: true,
+        },
       },
       {
         path: "/history",
         name: "History",
         component: () => import("../views/History.vue"),
+        meta: {
+          auth: true,
+        },
       },
       {
         path: "/buying",
         name: "Buying",
         component: () => import("../views/Buying.vue"),
+        meta: {
+          auth: true,
+        },
       },
       {
         path: "/profile",
         name: "Profile",
         component: () => import("../views/Profile.vue"),
-      },
-      {
-        path: "/result",
-        name: "LastResult",
-        component: () => import("../views/Result.vue"),
+        meta: {
+          auth: true,
+        },
       },
     ],
   },
@@ -53,20 +71,25 @@ const routes = [
     path: "/management",
     name: "Management",
     component: Main,
-
     meta: {
-      public: true,
+      auth: true,
     },
     children: [
       {
         path: "/manager",
         name: "Manager",
         component: () => import("../views/Manager.vue"),
+        meta: {
+          auth: true,
+        },
       },
       {
         path: "/crud-book",
         name: "CrudBook",
         component: () => import("../views/CRUDBook.vue"),
+        meta: {
+          auth: true,
+        },
       },
     ],
   },
@@ -77,16 +100,25 @@ const routes = [
     path: "/login",
     name: "Login",
     component: () => import("../views/Log.vue"),
+    meta: {
+      public: true,
+    },
   },
   {
     path: "/register",
     name: "Register",
     component: () => import("../views/Register.vue"),
+    meta: {
+      public: true,
+    },
   },
   {
     path: "/logout",
     name: "Logout",
     component: () => import("../views/ByeScreen.vue"),
+    meta: {
+      public: true,
+    },
   },
 ];
 
@@ -94,6 +126,20 @@ const router = new VueRouter({
   mode: "history",
   base: process.env.BASE_URL,
   routes,
+});
+
+// Permission
+router.beforeEach((to, from, next) => {
+  console.log(from);
+  if (to.matched.some((record) => record.meta.public)) {
+    next();
+  } else if (store.state.user) {
+    if (to.matched.some((record) => record.meta.auth)) {
+      next();
+    }
+  } else {
+    next({ name: "Management" });
+  }
 });
 
 export default router;

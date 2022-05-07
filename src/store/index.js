@@ -13,11 +13,8 @@ export default new Vuex.Store({
       book: [],
     },
 
-    search: {
-      lastQuery: "",
-      filter: [],
-      query: "",
-    },
+    // Search
+    search: "",
 
     // Dialogs
     shoppingBag: false,
@@ -50,14 +47,8 @@ export default new Vuex.Store({
     },
 
     //Search
-    setSearchLastQuery(state, lastQuery) {
-      state.search.lastQuery = lastQuery;
-    },
     setSearchQuery(state, query) {
-      state.search.query = query;
-    },
-    setSearchFilter(state, filter) {
-      state.search.filter.push(filter);
+      state.search = query;
     },
 
     //Dialogs
@@ -99,17 +90,7 @@ export default new Vuex.Store({
 
     //Search
     changeQuery({ commit }, query) {
-      commit("setSearchLastQuery", this.state.search.query);
       commit("setSearchQuery", query);
-    },
-    addFilter({ commit }, narrow) {
-      if (!narrow.isArray()) {
-        narrow = [narrow];
-      }
-
-      narrow.forEach((constrain) => {
-        commit("setSearchFilter", constrain);
-      });
     },
 
     // Dialogs

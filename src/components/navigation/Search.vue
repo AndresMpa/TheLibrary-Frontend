@@ -5,10 +5,7 @@
     hide-details
     class="search"
     v-model="query"
-    color="primary"
     label="Buscar..."
-    prepend-icon="mdi-filter"
-    @click:prepend="showFilter"
     append-outer-icon="mdi-magnify"
     @click:append-outer="sendQuery"
   ></v-text-field>
@@ -21,10 +18,8 @@ export default {
     query: "",
   }),
   methods: {
-    showFilter() {
-      console.log("filtering");
-    },
     sendQuery() {
+      this.$store.dispatch("changeQuery", this.query);
       this.$router.push({ name: "LastResult" }).catch(() => {
         console.log(`Result of ${this.query}`);
       });
@@ -34,7 +29,4 @@ export default {
 </script>
 
 <style lang="css" scoped>
-.search {
-  color: white;
-}
 </style>

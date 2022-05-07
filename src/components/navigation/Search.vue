@@ -25,7 +25,9 @@ export default {
       console.log("filtering");
     },
     sendQuery() {
-      console.log("searching");
+      this.$router.push({ name: "LastResult" }).catch(() => {
+        console.log(`Result of ${this.query}`);
+      });
     },
   },
 };

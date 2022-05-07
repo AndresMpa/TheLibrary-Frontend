@@ -75,7 +75,7 @@ export default {
       this.validateAccount();
     },
     validateAccount() {
-      if (this.$store.state.user.information.name === "Admin") {
+      if (this.$store.state.user.information.username === "Admin") {
         this.$store.dispatch("isManager", true);
         this.$router.push({ name: "Manager" }).catch(() => {
           console.log("Admin");

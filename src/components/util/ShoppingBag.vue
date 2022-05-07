@@ -11,7 +11,7 @@ export default {
   name: "ShoppingBag",
   methods: {
     openBag() {
-      if (this.$store.state.user.information.name === undefined) {
+      if (this.$store.state.user.information.username === undefined) {
         Swal.fire({
           title: "Debes iniciar sesión",
           text: "Hemos detectado que deseas iniciar una compra pero no tiene una sesión activa, por favor ingresa primero para poder gestionar tus compras",

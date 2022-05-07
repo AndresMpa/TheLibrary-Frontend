@@ -74,7 +74,7 @@ export default {
   },
   methods: {
     validateAccount() {
-      if(this.$store.state.user.information.name === undefined) {
+      if(this.$store.state.user.information.username === undefined) {
         this.$router.push({ name: "Login" }).catch(() => {
           console.log("Login");
         });

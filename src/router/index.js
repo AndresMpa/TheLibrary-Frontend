@@ -1,4 +1,5 @@
 import Vue from "vue";
+import store from "../store/index";
 import VueRouter from "vue-router";
 import Main from "../views/Main.vue";
 
@@ -130,7 +131,9 @@ const router = new VueRouter({
 
 // Permission
 router.beforeEach((to, from, next) => {
-  console.log(from);
+  if (from.hash !== "") {
+    console.log("Using hash");
+  }
   if (to.matched.some((record) => record.meta.public)) {
     next();
   } else if (store.state.user) {

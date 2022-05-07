@@ -8,8 +8,15 @@
 import ContentLoader from "./components/util/ContentLoader.vue";
 export default {
   name: "App",
-  data: () => ({}),
   components: { ContentLoader },
+  methods: {
+    checkSession() {
+      this.$store.dispatch("autoLogin");
+    },
+  },
+  beforeCreate() {
+    this.checkSession;
+  },
 };
 </script>
 

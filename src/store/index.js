@@ -1,13 +1,15 @@
 import Vue from "vue";
 import Vuex from "vuex";
+import decode from "jwt-decode";
+import router from "../router/index";
 
 Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
     // Validator
-    manager: false,
     user: {
+      token: "",
       information: {},
       reserved: [],
       book: [],
@@ -29,10 +31,8 @@ export default new Vuex.Store({
     setUser(state, data) {
       state.user.information = data;
     },
-    clearUser(state) {
-      state.user.information = {};
-      state.user.reserved = [];
-      state.user.book = [];
+    setToken(state, token) {
+      state.user.token = token;
     },
     removeBook(state, element) {
       state.user.book.splice(element, element + 1);
@@ -45,11 +45,6 @@ export default new Vuex.Store({
     },
     addShoppingBag(state, item) {
       state.user.book.push(item);
-    },
-
-    // Validator
-    setManager(state, status) {
-      state.manager = status;
     },
 
     //Search
@@ -75,11 +70,31 @@ export default new Vuex.Store({
   },
   actions: {
     //User
-    setUser({ commit }, data) {
-      commit("setUser", data);
+    setUser({ commit }, token) {
+      commit("setToken", token);
+      commit("setUser", decode(token));
+      localStorage.setItem("token", token);
+      localStorage.setItem("type", this.state.user.information.type);
+    },
+    autoLogin({ commit }) {
+      //console.log("autologin");
+      let token = localStorage.getItem("token");
+      if (token) {
+        commit("setToken", token);
+        commit("setUser", decode(token));
+        localStorage.setItem("type", this.state.user.information.type);
+      }
+      if (this.state.user.type === "Manager") {
+        router.push({ name: "Manager" }).catch(() => {});
+      } else {
+        router.push({ name: "Store" }).catch(() => {});
+      }
     },
     cleanUserSession({ commit }) {
-      commit("clearUser");
+      commit("setUser", null);
+      commit("setToken", null);
+      localStorage.removeItem("token");
+      localStorage.removeItem("type");
     },
 
     //Bag

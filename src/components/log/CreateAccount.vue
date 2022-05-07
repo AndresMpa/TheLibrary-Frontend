@@ -103,7 +103,7 @@
                   </v-card-text>
 
                   <v-card-actions class="mt-5">
-                    <v-btn small @click="sendLogin()">
+                    <v-btn small @click="createAccount()">
                       <v-icon> mdi-account-plus </v-icon>
                       Crear cuenta
                     </v-btn>
@@ -140,10 +140,11 @@ export default {
     errors: [(value) => !!value || "Este campo es necesario"],
     rules: {
       required: (value) => !!value || "Este campo es necesario",
-      min: (v) => v.length >= 8 || "La contraseña debe tener al menos 8 caracteres",
+      min: (v) =>
+        v.length >= 8 || "La contraseña debe tener al menos 8 caracteres",
       passwordMatch: () => {
-        if (this.password !== this.rePassword ) {
-          return `Las contraseña no coinciden`
+        if (this.password !== this.rePassword) {
+          return `Las contraseña no coinciden`;
         }
       },
     },
@@ -158,6 +159,18 @@ export default {
       this.$router.push({ name: "Main" }).catch(() => {
         console.log("Client");
       });
+    },
+    createAccount() {
+      data = {
+        name: this.name,
+        lastName: this.lastName,
+        userName: this.userName,
+        address: this.address,
+        phone: this.phone,
+        email: this.email,
+        news: this.news,
+        password: this.password,
+      };
     },
   },
 };

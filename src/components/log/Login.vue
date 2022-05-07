@@ -70,7 +70,7 @@ export default {
     },
     logUser() {
       this.$store.dispatch("setUser", {
-        name: this.name,
+        username: this.name,
       });
       this.validateAccount();
     },

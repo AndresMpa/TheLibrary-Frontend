@@ -4,8 +4,11 @@
       v-for="(book, index) in stock[this.$store.state.currentPage - 1]"
       class="d-flex child-flex"
       :key="index"
-      sm="12"
+      xl="2"
+      lg="3"
       md="3"
+      xs="12"
+      sm="12"
     >
       <Book :information="book"></Book>
     </v-col>

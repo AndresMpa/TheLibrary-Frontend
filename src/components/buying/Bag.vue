@@ -44,48 +44,9 @@
 <script>
 export default {
   name: "Bag",
-  data: () => ({
-    items: [
-      {
-        src: "../../assets/example_2.jpg",
-        title: "Antología de terror",
-        author: "H. P LoveCraft",
-        resumen:
-          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
-      },
-      {
-        src: "../../assets/example_2.jpg",
-        title: "Antología de terror",
-        author: "H. P LoveCraft",
-        resumen:
-          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
-      },
-      {
-        src: "../../assets/example_2.jpg",
-        title: "Antología de terror",
-        author: "H. P LoveCraft",
-        resumen:
-          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
-      },
-      {
-        src: "../../assets/example_2.jpg",
-        title: "Antología de terror",
-        author: "H. P LoveCraft",
-        resumen:
-          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
-      },
-      {
-        src: "../../assets/example_2.jpg",
-        title: "Antología de terror",
-        author: "H. P LoveCraft",
-        resumen:
-          "Este libro es una guía exhaustiva para adentrarse en los siniestros bosques que alberga el alma del escritor, sus relatos expresan la soledad y la pequeñez de la condición humana en un universo infinito",
-      },
-    ],
-  }),
   methods: {
     removeBook(book) {
-      console.log(book);
+      this.$store.dispatch("removeBookFromBag", book)
     },
   },
 };

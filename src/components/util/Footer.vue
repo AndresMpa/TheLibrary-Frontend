@@ -3,9 +3,9 @@
     <v-card flat tile class="alter lighten-1 white--text text-center">
       <v-card-text>
         <v-btn
-          v-for="ref in references"
+          v-for="(ref, index) in references"
           class="mx-4 white--text"
-          :key="ref"
+          :key="index"
           icon
         >
           <a :href="ref.link">

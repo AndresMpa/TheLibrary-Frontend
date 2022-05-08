@@ -4,8 +4,8 @@
       <v-col>
         <v-combobox
           :label="preferenceLabel"
+          :items="preferences"
           v-model="genders"
-          :items="items"
           multiple
           chips
         >
@@ -35,6 +35,36 @@
         </v-switch>
       </v-col>
     </v-row>
+    <v-row>
+      <v-col>
+        <v-text-field
+          label="Nombre de usuario"
+          v-model="username"
+          required
+        ></v-text-field>
+      </v-col>
+      <v-col>
+        <v-text-field
+          label="Dirección de envios"
+          v-model="address"
+          required
+        ></v-text-field>
+      </v-col>
+      <v-col>
+        <v-text-field
+          label="Telefono de contacto"
+          v-model="phone"
+          required
+        ></v-text-field>
+      </v-col>
+      <v-col>
+        <v-text-field
+          label="Correo electronico"
+          v-model="email"
+          required
+        ></v-text-field>
+      </v-col>
+    </v-row>
   </div>
 </template>
 
@@ -45,7 +75,7 @@ export default {
     return {
       news: false,
       genders: [],
-      items: ["Programming", "Design", "Vue", "Vuetify"],
+      preferences: ["Programming", "Design", "Vue", "Vuetify"],
     };
   },
   computed: {

@@ -24,7 +24,8 @@
                   ></v-text-field>
 
                   <v-card-actions class="mt-5">
-                    <v-btn small @click="logUser()">
+                    <v-btn small @click="testManager()">
+                    <!--<v-btn small @click="logUser()">-->
                       <v-icon> mdi-account </v-icon>
                       Ingresar
                     </v-btn>
@@ -58,6 +59,11 @@ export default {
     errors: [(value) => !!value || "Este campo es necesario"],
   }),
   methods: {
+    testManager() {
+      this.$router.push({ name: "Manager" }).catch(() => {
+        console.log("Admin");
+      });
+    },
     sendRegister() {
       this.$router.push({ name: "Register" }).catch(() => {
         console.log("Register");
@@ -68,21 +74,21 @@ export default {
         console.log("Client");
       });
     },
-    logUser() {
-      this.$store.dispatch("setUser", {
-        username: this.name,
-      });
-      this.validateAccount();
-    },
     validateAccount() {
-      if (this.$store.state.user.information.username === "Admin") {
-        this.$store.dispatch("isManager", true);
+      if (this.$store.state.user.information.type === 1) {
         this.$router.push({ name: "Manager" }).catch(() => {
           console.log("Admin");
         });
       } else {
-        this.sendMain()
+        this.sendMain();
       }
+    },
+    logUser() {
+      this.$store.dispatch("setUser", {
+        username: this.name,
+        type: 1
+      });
+      this.validateAccount();
     },
   },
 };

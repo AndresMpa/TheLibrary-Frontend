@@ -1,5 +1,5 @@
 <template>
-  <main v-if="this.$store.state.manager">
+  <main v-if="this.$store.state.user.information.type === 1">
     <manager-bar />
     <content-loader />
   </main>
@@ -18,7 +18,7 @@ export default {
   components: { ClientBar, ContentLoader, ManagerBar },
   methods: {
     sendMain() {
-      if (this.$store.state.manager) {
+      if (this.$store.state.user.information.type === 1) {
         this.$router.push({ name: "Manager" }).catch(() => {
           console.log("Manager");
         });

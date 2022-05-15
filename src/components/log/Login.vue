@@ -24,8 +24,7 @@
                   ></v-text-field>
 
                   <v-card-actions class="mt-5">
-                    <v-btn small @click="testManager()">
-                    <!--<v-btn small @click="logUser()">-->
+                    <v-btn small @click="logUser()">
                       <v-icon> mdi-account </v-icon>
                       Ingresar
                     </v-btn>
@@ -51,6 +50,7 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "Login",
   data: () => ({
@@ -59,11 +59,6 @@ export default {
     errors: [(value) => !!value || "Este campo es necesario"],
   }),
   methods: {
-    testManager() {
-      this.$router.push({ name: "Manager" }).catch(() => {
-        console.log("Admin");
-      });
-    },
     sendRegister() {
       this.$router.push({ name: "Register" }).catch(() => {
         console.log("Register");
@@ -84,10 +79,16 @@ export default {
       }
     },
     logUser() {
-      this.$store.dispatch("setUser", {
-        username: this.name,
-        type: 1
-      });
+      let logData = {
+        name: this.name,
+        password: this.password,
+      };
+      axios
+        .post("/user/test", logData)
+        .then((response) => response.data)
+        .then((data) => {
+          this.$store.dispatch("setUser", data);
+        });
       this.validateAccount();
     },
   },

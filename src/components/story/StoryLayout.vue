@@ -1,21 +1,21 @@
 <template>
   <v-row dense>
     <v-col cols="12">
-      <history-controller />
+      <story-controller />
     </v-col>
     <v-col class="mx-auto">
       <div class="font-weight-bold ml-8 mb-2">Historico</div>
-      <history-line />
+      <story-line />
     </v-col>
   </v-row>
 </template>
 
 <script>
-import HistoryController from "./HistoryController.vue";
-import HistoryLine from "./HistoryLine.vue";
+import StoryController from "./StoryController.vue";
+import StoryLine from "./StoryLine.vue";
 export default {
-  components: { HistoryLine, HistoryController },
-  name: "HistoryLayout",
+  name: "StoryLayout",
+  components: { StoryLine, StoryController },
 };
 </script>
 

@@ -22,6 +22,11 @@ export default new Vuex.Store({
     shoppingBag: false,
     seeBook: false,
     dawer: false,
+    // Crud
+    seeAdd: false,
+    seeList: false,
+    seeDelete: false,
+    seeEdit: false,
 
     // Paginator
     currentPage: 1,
@@ -63,6 +68,19 @@ export default new Vuex.Store({
     },
     setDrawer(state, drawer) {
       state.drawer = drawer;
+    },
+    // Crud
+    setCrudAdd(state, status) {
+      state.seeAdd = status;
+    },
+    setCrudList(state, status) {
+      state.seeList = status;
+    },
+    setCrudEdit(state, status) {
+      state.seeEdit = status;
+    },
+    setCrudDelete(state, status) {
+      state.seeDelete = status;
     },
 
     // Paginator
@@ -139,6 +157,31 @@ export default new Vuex.Store({
     },
     showDrawer({ commit }, state) {
       commit("setDrawer", state);
+    },
+    seeCrud({ commit }, utility) {
+      console.log(utility);
+      switch (utility) {
+        case 0: {
+          commit("setCrudAdd", !this.state.seeAdd);
+          break;
+        }
+        case 1: {
+          commit("setCrudList", !this.state.seeList);
+          break;
+        }
+        case 2: {
+          commit("setCrudEdit", !this.state.seeEdit);
+          break;
+        }
+        case 3: {
+          commit("setCrudDelete", !this.state.seeDelete);
+          break;
+        }
+        default: {
+          console.log("Error on see crud");
+          break;
+        }
+      }
     },
 
     // Paginator

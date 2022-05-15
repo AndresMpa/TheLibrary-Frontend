@@ -1,59 +1,66 @@
 <template>
   <v-container fluid>
-    <v-row align="center" justify="center">
-      <v-col cols="12">
-        <v-card class="text-center mx-auto" color="detail" outlined dark>
-          <v-card-title class="text-h4 justify-center">
-            Agregar
-          </v-card-title>
-          <v-card-text class="subheading">
-            Agregar ejemplares individuales al sistema
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12">
-        <v-card class="text-center mx-auto" color="alter" outlined dark>
-          <v-card-title class="text-h4 justify-center">
-            Listar
-          </v-card-title>
-          <v-card-text class="subheading">
-            Listas las existencias de ejemplares para material existente
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12">
-        <v-card class="text-center mx-auto" color="signs" outlined dark>
-          <v-card-title class="text-h4 justify-center">
-            Eliminar
-          </v-card-title>
-          <v-card-text class="subheading">
-            Eliminar ejemplares existentes para la vista de los usuarios
-          </v-card-text>
-        </v-card>
-      </v-col>
-      <v-col cols="12">
-        <v-card class="text-center mx-auto" color="alert" outlined dark>
-          <v-card-title class="text-h4 justify-center">
-            Editar
-          </v-card-title>
-          <v-card-text class="subheading">
-            Edición de la información de los ejemplares existentes
-          </v-card-text>
-        </v-card>
-      </v-col>
+    <v-row
+      v-for="(item, index) in cardInfo"
+      justify="center"
+      align="center"
+      :key="index"
+    >
+      <crud-card
+        :info="item"
+        class="clickable"
+        @click="handleCrud(index)"
+      ></crud-card>
     </v-row>
   </v-container>
 </template>
 
 <script>
+import CrudAdd from "./CrudAdd.vue";
+import CrudCard from "./CrudCard.vue";
+import CrudEdit from "./CrudEdit.vue";
+import CrudList from "./CrudList.vue";
+import CrudDelete from "./CrudDelete.vue";
 export default {
   name: "CrudLayout",
+  components: { CrudCard, CrudAdd, CrudList, CrudEdit, CrudDelete },
+  data: () => ({
+    cardInfo: [
+      {
+        color: "detail",
+        title: "Agregar",
+        description: "Agregar ejemplares individuales al sistema",
+      },
+      {
+        color: "alter",
+        title: "Listar",
+        description:
+          "Listas las existencias de ejemplares para material existente",
+      },
+      {
+        color: "alert",
+        title: "Editar",
+        description: "Edición de la información de los ejemplares existentes",
+      },
+
+      {
+        color: "signs",
+        title: "Eliminar",
+        description:
+          "Eliminar ejemplares existentes para la vista de los usuarios",
+      },
+    ],
+  }),
   methods: {
-    seeBook() {
-      this.$store.dispatch("seeBook");
+    handleCrud(utility) {
+      this.$store.dispatch("seeCrud", utility);
     },
   },
 };
 </script>
 
-<style lang="css" scoped></style>
+<style lang="css" scoped>
+.clickable {
+  cursor: pointer;
+}
+</style>

@@ -3,40 +3,24 @@
     v-model="this.$store.state.seeList"
     transition="dialog-top-transition"
     max-width="800"
-    persistent
+    fullscreen
   >
-    <v-card
-      v-for="(item, index) in items"
-      color="alter"
-      :key="index"
-      cols="12"
-      dark
-    >
+    <crud-toolbar label="Listado de libros" :utility="1"></crud-toolbar>
+    <v-card>
+      <v-card-text>
+        <v-row class="pt-5" align="center" justify="center">
+          <add-book-form></add-book-form>
+        </v-row>
+      </v-card-text>
     </v-card>
   </v-dialog>
 </template>
 
 <script>
-//import axios from "axios";
+import CrudToolbar from "./CrudToolbar.vue";
 export default {
   name: "CrudList",
-  data: () => ({
-    counter: 0,
-    items: [],
-  }),
-  methods: {},
-  computed: {
-    seeing() {
-      return this.$store.state.seeAdd;
-    },
-  },
-  watch: {
-    seeing() {
-      if (this.$store.state.seeAdd) {
-        console.log("Add");
-      }
-    },
-  },
+  components: { CrudToolbar },
 };
 </script>
 

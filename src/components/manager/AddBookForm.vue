@@ -1,7 +1,7 @@
 <template>
   <v-card color="main" dark>
     <v-card-title>
-      <span class="text-h5">Formulario de ingreso, </span>
+      <span class="text-h5">Formulario de ingreso de ejemplares</span>
     </v-card-title>
     <v-card-text>
       <v-container>

@@ -1,5 +1,9 @@
 <template>
   <v-container fluid>
+    <crud-add></crud-add>
+    <crud-list></crud-list>
+    <crud-edit></crud-edit>
+    <crud-delete></crud-delete>
     <v-row
       v-for="(item, index) in cardInfo"
       justify="center"
@@ -8,8 +12,8 @@
     >
       <crud-card
         :info="item"
+        :util="index"
         class="clickable"
-        @click="handleCrud(index)"
       ></crud-card>
     </v-row>
   </v-container>
@@ -51,11 +55,6 @@ export default {
       },
     ],
   }),
-  methods: {
-    handleCrud(utility) {
-      this.$store.dispatch("seeCrud", utility);
-    },
-  },
 };
 </script>
 

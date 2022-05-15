@@ -22,10 +22,11 @@ export default new Vuex.Store({
     shoppingBag: false,
     seeBook: false,
     dawer: false,
-    seeing: 0,
 
     // Paginator
     currentPage: 1,
+    storyLine: 0,
+    seeing: 0,
   },
   mutations: {
     // User
@@ -60,9 +61,6 @@ export default new Vuex.Store({
     setBookStatus(state, status) {
       state.seeBook = status;
     },
-    setSeeing(state, top) {
-      state.seeing = top;
-    },
     setDrawer(state, drawer) {
       state.drawer = drawer;
     },
@@ -70,6 +68,12 @@ export default new Vuex.Store({
     // Paginator
     setPageNumber(state, pageNumber) {
       state.currentPage = pageNumber;
+    },
+    setStoryLine(state, story) {
+      state.storyLine = story;
+    },
+    setSeeing(state, top) {
+      state.seeing = top;
     },
   },
   actions: {
@@ -133,9 +137,6 @@ export default new Vuex.Store({
     seeBook({ commit }) {
       commit("setBookStatus", !this.state.seeBook);
     },
-    seeTopBook({ commit }, book) {
-      commit("setSeeing", book);
-    },
     showDrawer({ commit }, state) {
       commit("setDrawer", state);
     },
@@ -143,6 +144,12 @@ export default new Vuex.Store({
     // Paginator
     updatePage({ commit }, number) {
       commit("setPageNumber", number);
+    },
+    seeTopBook({ commit }, book) {
+      commit("setSeeing", book);
+    },
+    changeLine({ commit }, story) {
+      commit("setStoryLine", story);
     },
   },
   modules: {},

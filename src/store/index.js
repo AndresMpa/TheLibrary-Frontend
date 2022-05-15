@@ -159,7 +159,6 @@ export default new Vuex.Store({
       commit("setDrawer", state);
     },
     seeCrud({ commit }, utility) {
-      console.log(utility);
       switch (utility) {
         case 0: {
           commit("setCrudAdd", !this.state.seeAdd);

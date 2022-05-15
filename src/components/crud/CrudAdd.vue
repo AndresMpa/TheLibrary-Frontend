@@ -6,7 +6,7 @@
     fullscreen
   >
     <crud-toolbar label="Agregar ejemplares" :utility="0"></crud-toolbar>
-    <v-card>
+    <v-card dark>
       <v-card-text >
         <v-row class="pt-5" align="center" justify="center">
           <add-book-form></add-book-form>

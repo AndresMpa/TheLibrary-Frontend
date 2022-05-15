@@ -2,8 +2,7 @@
   <v-data-table
     :items="stock"
     :search="search"
-    :headers="headers"
-    @page-count="pageCount"
+    :headers="avalibleHeader"
     show-by="quantity"
     class="elevation-1"
     hide-default-footer
@@ -17,11 +16,11 @@
         hide-details
         single-line
       ></v-text-field>
-      <manager-toolbar />
+      <manager-toolbar v-if="managerConstraints" />
     </template>
-    <template v-slot:item.actions="{ item }">
-      <v-icon small class="mr-2" @click="editItem(item)"> mdi-pencil </v-icon>
-      <v-icon small @click="deleteItem(item)"> mdi-delete </v-icon>
+    <template v-slot:item.actions="{ item }" v-if="!listConstraints">
+      <v-icon small class="mr-2" @click="editItem(item)" v-if="!deleteConstraints"> mdi-pencil </v-icon>
+      <v-icon small @click="deleteItem(item)" v-if="!editConstraints"> mdi-delete </v-icon>
     </template>
     <template v-slot:no-data>
       <v-btn color="main" @click="initialize" dark> Recargar </v-btn>
@@ -48,6 +47,29 @@ export default {
       { text: "Opciones", value: "actions", sortable: false },
     ],
   }),
+  computed: {
+    managerConstraints() {
+      return this.$route.name === "Manager" ? true : false;
+    },
+    listConstraints() {
+      return this.$store.state.seeList;
+    },
+    editConstraints() {
+      return this.$store.state.seeEdit;
+    },
+    deleteConstraints() {
+      return this.$store.state.seeDelete;
+    },
+    avalibleHeader() {
+      let avalible = [];
+      if (this.$store.state.seeList) {
+        avalible = this.headers.slice(0, this.headers.length - 1);
+      } else {
+        avalible = [...this.headers];
+      }
+      return avalible;
+    },
+  },
   methods: {
     initialize() {
       this.stock = [

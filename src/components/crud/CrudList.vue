@@ -6,10 +6,10 @@
     fullscreen
   >
     <crud-toolbar label="Listado de libros" :utility="1"></crud-toolbar>
-    <v-card>
+    <v-card dark>
       <v-card-text>
         <v-row class="pt-5" align="center" justify="center">
-          <add-book-form></add-book-form>
+          <administration-panel></administration-panel>
         </v-row>
       </v-card-text>
     </v-card>
@@ -17,10 +17,11 @@
 </template>
 
 <script>
+import AdministrationPanel from "../manager/AdministrationPanel.vue";
 import CrudToolbar from "./CrudToolbar.vue";
 export default {
   name: "CrudList",
-  components: { CrudToolbar },
+  components: { CrudToolbar, AdministrationPanel },
 };
 </script>
 

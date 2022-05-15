@@ -9,11 +9,11 @@ export default new Vuex.Store({
   state: {
     // Validator
     user: {
-      token: "",
       information: {},
       reserved: [],
       book: [],
     },
+    permissions: 0,
 
     // Search
     search: "",
@@ -31,8 +31,8 @@ export default new Vuex.Store({
     setUser(state, data) {
       state.user.information = data;
     },
-    setToken(state, token) {
-      state.user.token = token;
+    setUserPermission(state, allow) {
+      state.permissions = allow;
     },
     removeBook(state, element) {
       state.user.book.splice(element, element + 1);
@@ -71,30 +71,30 @@ export default new Vuex.Store({
   actions: {
     //User
     setUser({ commit }, token) {
-      commit("setToken", token);
-      commit("setUser", decode(token));
-      localStorage.setItem("token", token);
-      localStorage.setItem("type", this.state.user.information.type);
+      localStorage.setItem("token", token.tokenReturn);
+      commit("setUser", JSON.stringify(decode(token.tokenReturn)));
+      commit("setUserPermission", decode(token.tokenReturn)["type"]);
     },
     autoLogin({ commit }) {
-      //console.log("autologin");
       let token = localStorage.getItem("token");
       if (token) {
-        commit("setToken", token);
-        commit("setUser", decode(token));
-        localStorage.setItem("type", this.state.user.information.type);
+        commit("setUser", JSON.stringify(decode(token.tokenReturn)));
+        commit("setUserPermission", decode(token.tokenReturn)["type"]);
       }
-      if (this.state.user.type === "Manager") {
-        router.push({ name: "Manager" }).catch(() => {});
+      if (this.state.permissions === 1) {
+        router.push({ name: "Manager" }).catch(() => {
+          console.log("Error on manager");
+        });
       } else {
-        router.push({ name: "Store" }).catch(() => {});
+        router.push({ name: "Store" }).catch(() => {
+          console.log("Error on client");
+        });
       }
     },
     cleanUserSession({ commit }) {
-      commit("setUser", null);
-      commit("setToken", null);
+      commit("setUser", {});
+      commit("setUserPermission", 0);
       localStorage.removeItem("token");
-      localStorage.removeItem("type");
     },
 
     //Bag
@@ -110,11 +110,6 @@ export default new Vuex.Store({
     },
     clearBag({ commit }) {
       commit("clearBooks");
-    },
-
-    //Validator
-    isManager({ commit }, state) {
-      commit("setManager", state);
     },
 
     //Search

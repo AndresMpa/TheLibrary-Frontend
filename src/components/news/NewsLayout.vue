@@ -4,282 +4,35 @@
       v-for="(item, index) in information[this.$store.state.currentPage - 1]"
       :key="index"
     >
-      <Banner :information="item" />
+      <Banner :information="item"></Banner>
     </article>
-    <Pagination :total="information.length" />
+    <Pagination :total="information.length"></Pagination>
   </section>
 </template>
 
 <script>
 import Pagination from "../util/Pagination.vue";
 import Banner from "./Banner.vue";
+import axios from "axios";
 export default {
   name: "NewsLayout",
   components: { Pagination, Banner },
   data: () => ({
-    information: [
-      [
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-      ],
-      [
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-      ],
-      [
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-      ],
-
-      [
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-      ],
-      [
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-      ],
-      [
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-      ],
-
-      [
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-      ],
-      [
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-      ],
-      [
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-        {
-          icon: "mdi-lock",
-          color: "deep-purple accent-4",
-          content:
-            "Three line text string example with two actions. One to two lines is preferable. Three lines should be considered the maximum string length on desktop in order to keep messages short and actionable.",
-        },
-      ],
-    ],
+    information: [],
   }),
   methods: {
+    getNews() {
+      axios
+        .get("/news/test")
+        .then((response) => response.data)
+        .then((data) => (this.information = data));
+    },
     handlePageInit() {
       this.$store.dispatch("updatePage", 1);
     },
   },
-  beforeCreate() {
+  created() {
+    this.getNews();
     this.handlePageInit();
   },
   beforeDestroy() {

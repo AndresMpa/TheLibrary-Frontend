@@ -1,4 +1,4 @@
-# the-library
+# The library
 
 ## Project setup
 ```

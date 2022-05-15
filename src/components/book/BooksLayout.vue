@@ -26,7 +26,7 @@ export default {
   methods: {
     getStock() {
       axios
-        .get("/book/test")
+        .get("/book/list")
         .then((response) => response.data)
         .then((data) => (this.stock = data));
     },

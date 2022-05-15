@@ -69,27 +69,17 @@ export default {
         console.log("Client");
       });
     },
-    validateAccount() {
-      if (this.$store.state.user.information.type === 1) {
-        this.$router.push({ name: "Manager" }).catch(() => {
-          console.log("Admin");
-        });
-      } else {
-        this.sendMain();
-      }
-    },
     logUser() {
       let logData = {
         name: this.name,
         password: this.password,
       };
       axios
-        .post("/user/test", logData)
+        .post("/user/signin", logData)
         .then((response) => response.data)
         .then((data) => {
           this.$store.dispatch("setUser", data);
         });
-      this.validateAccount();
     },
   },
 };

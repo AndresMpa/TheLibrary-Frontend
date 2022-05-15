@@ -22,6 +22,7 @@ export default new Vuex.Store({
     shoppingBag: false,
     seeBook: false,
     dawer: false,
+    seeing: 0,
 
     // Paginator
     currentPage: 1,
@@ -59,6 +60,9 @@ export default new Vuex.Store({
     setBookStatus(state, status) {
       state.seeBook = status;
     },
+    setSeeing(state, top) {
+      state.seeing = top;
+    },
     setDrawer(state, drawer) {
       state.drawer = drawer;
     },
@@ -74,6 +78,15 @@ export default new Vuex.Store({
       localStorage.setItem("token", token.tokenReturn);
       commit("setUser", JSON.stringify(decode(token.tokenReturn)));
       commit("setUserPermission", decode(token.tokenReturn)["type"]);
+      if (decode(token.tokenReturn)["type"] === 1) {
+        router.push({ name: "Manager" }).catch(() => {
+          console.log("Admin");
+        });
+      } else {
+        router.push({ name: "Main" }).catch(() => {
+          console.log("Client");
+        });
+      }
     },
     autoLogin({ commit }) {
       let token = localStorage.getItem("token");
@@ -123,6 +136,9 @@ export default new Vuex.Store({
     },
     seeBook({ commit }) {
       commit("setBookStatus", !this.state.seeBook);
+    },
+    seeTopBook({ commit }, book) {
+      commit("setSeeing", book);
     },
     showDrawer({ commit }, state) {
       commit("setDrawer", state);

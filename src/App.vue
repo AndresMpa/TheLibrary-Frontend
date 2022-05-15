@@ -7,14 +7,6 @@
 <script>
 export default {
   name: "App",
-  methods: {
-    checkSession() {
-      this.$store.dispatch("autoLogin");
-    },
-  },
-  created() {
-    this.checkSession;
-  },
 };
 </script>
 

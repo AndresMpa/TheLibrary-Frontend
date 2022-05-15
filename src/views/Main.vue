@@ -17,21 +17,13 @@ export default {
   name: "Main",
   components: { ClientBar, ContentLoader, ManagerBar },
   methods: {
-    sendMain() {
-      if (this.$store.state.permissions === 1) {
-        this.$router.push({ name: "Manager" }).catch(() => {
-          console.log("Manager");
-        });
-      } else {
-        this.$router.push({ name: "Store" }).catch(() => {
-          console.log("Home");
-        });
-      }
+    checkSession() {
+      this.$store.dispatch("autoLogin");
     },
   },
   //Hooks
   created() {
-    this.sendMain();
+    this.checkSession();
   },
 };
 </script>

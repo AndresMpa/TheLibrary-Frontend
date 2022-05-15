@@ -76,7 +76,7 @@ export default new Vuex.Store({
     //User
     setUser({ commit }, token) {
       localStorage.setItem("token", token.tokenReturn);
-      commit("setUser", JSON.stringify(decode(token.tokenReturn)));
+      commit("setUser", decode(token.tokenReturn));
       commit("setUserPermission", decode(token.tokenReturn)["type"]);
       if (decode(token.tokenReturn)["type"] === 1) {
         router.push({ name: "Manager" }).catch(() => {
@@ -91,17 +91,13 @@ export default new Vuex.Store({
     autoLogin({ commit }) {
       let token = localStorage.getItem("token");
       if (token) {
-        commit("setUser", JSON.stringify(decode(token.tokenReturn)));
-        commit("setUserPermission", decode(token.tokenReturn)["type"]);
+        commit("setUser", decode(token));
+        commit("setUserPermission", decode(token)["type"]);
       }
       if (this.state.permissions === 1) {
-        router.push({ name: "Manager" }).catch(() => {
-          console.log("Error on manager");
-        });
+        router.push({ name: "Manager" }).catch(() => {});
       } else {
-        router.push({ name: "Store" }).catch(() => {
-          console.log("Error on client");
-        });
+        router.push({ name: "Store" }).catch(() => {});
       }
     },
     cleanUserSession({ commit }) {

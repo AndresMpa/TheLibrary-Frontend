@@ -1,11 +1,22 @@
 <template>
   <v-data-table
     :items="stock"
+    :search="search"
     :headers="headers"
+    @page-count="pageCount"
     show-by="quantity"
     class="elevation-1"
+    hide-default-footer
   >
     <template v-slot:top>
+      <v-text-field
+        append-icon="mdi-magnify"
+        label="Buscar ejemplares"
+        v-model="search"
+        class="pa-5"
+        hide-details
+        single-line
+      ></v-text-field>
       <manager-toolbar />
     </template>
     <template v-slot:item.actions="{ item }">
@@ -24,6 +35,7 @@ export default {
   name: "AdministrationPanel",
   components: { ManagerToolbar },
   data: () => ({
+    search: "",
     stock: [],
     headers: [
       {
@@ -33,7 +45,7 @@ export default {
         value: "name",
       },
       { text: "Existencias", value: "quantity" },
-      { text: "Actions", value: "actions", sortable: false },
+      { text: "Opciones", value: "actions", sortable: false },
     ],
   }),
   methods: {

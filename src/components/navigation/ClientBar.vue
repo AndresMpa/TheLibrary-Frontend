@@ -48,7 +48,7 @@ export default {
         },
         {
           to: "Buying",
-          icon: "mdi-dolly",
+          icon: "mdi-cart",
           name: "Compras",
         },
       ],

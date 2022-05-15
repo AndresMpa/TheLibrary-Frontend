@@ -74,6 +74,10 @@ export default {
   data() {
     return {
       news: false,
+      username: "",
+      email: "",
+      address: "",
+      phone: "",
       genders: [],
       preferences: ["Programming", "Design", "Vue", "Vuetify"],
     };

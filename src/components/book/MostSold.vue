@@ -33,7 +33,7 @@ export default {
   },
   methods: {
     seeBook(top) {
-      if (this.$store.state.user.information.news_feed) {
+      if (this.$store.state.user.information.feed) {
         this.$store.dispatch("seeBook");
         this.$store.dispatch("seeTopBook", top);
       }

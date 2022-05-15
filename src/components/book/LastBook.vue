@@ -42,21 +42,39 @@
 </template>
 
 <script>
+import axios from "axios";
 export default {
   name: "LastBook",
   data: () => ({
+    counter: 0,
     items: [],
   }),
   methods: {
     getOpenedBook() {
-      let data = this.$store.state.seeing;
       axios
-        .post("/book/one-book", data)
+        .post("/book/one-book", {
+          item: this.$store.state.seeing,
+        })
         .then((response) => response.data)
         .then((data) => (this.items = data));
     },
     closeBook() {
       this.$store.dispatch("seeBook");
+    },
+  },
+  computed: {
+    seeing() {
+      return this.$store.state.seeBook;
+    },
+  },
+  watch: {
+    seeing() {
+      if (this.$store.state.seeBook && this.counter === 0) {
+        this.getOpenedBook();
+        this.counter++;
+      } else {
+        this.counter = 0;
+      }
     },
   },
 };

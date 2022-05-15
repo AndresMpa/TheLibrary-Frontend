@@ -40,9 +40,9 @@ const routes = [
         },
       },
       {
-        path: "/history",
-        name: "History",
-        component: () => import("../views/History.vue"),
+        path: "/story",
+        name: "Story",
+        component: () => import("../views/Story.vue"),
         meta: {
           auth: true,
         },

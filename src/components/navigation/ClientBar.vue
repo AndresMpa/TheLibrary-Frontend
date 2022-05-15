@@ -42,7 +42,7 @@ export default {
           name: "Novedades",
         },
         {
-          to: "History",
+          to: "Story",
           icon: "mdi-script",
           name: "Historial de compras",
         },

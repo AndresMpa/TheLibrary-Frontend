@@ -20,7 +20,7 @@
             <div class="text-subtitle-1">Resumen</div>
 
             <div>
-              {{ item.resumen }}
+              {{ item.summary }}
             </div>
           </v-card-text>
 

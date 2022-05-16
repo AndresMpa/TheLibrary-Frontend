@@ -22,7 +22,11 @@
       <div v-for="(product, index) in this.$store.state.user.book" :key="index">
         <v-row dense>
           <v-col> {{ product.title }} - {{ product.author }} </v-col>
-          <v-col> {{ product.price }} </v-col>
+          <v-col>
+            <h3>
+              {{ product.price }}
+            </h3>
+          </v-col>
         </v-row>
       </div>
     </v-card-text>
@@ -44,9 +48,13 @@
         </v-col>
       </v-row>
       <div v-for="(product, index) in this.$store.state.user.book" :key="index">
-        <v-row dense v-if="product.fee > 0">
+        <v-row dense v-if="product.discount > 0">
           <v-col> {{ product.title }} - {{ product.author }} </v-col>
-          <v-col> {{ product.fee }} </v-col>
+          <v-col>
+            <h3>
+              {{ product.discount * 100 }} %
+            </h3>
+          </v-col>
         </v-row>
       </div>
     </v-card-text>

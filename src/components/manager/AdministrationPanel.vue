@@ -17,9 +17,9 @@
       ></v-text-field>
       <manager-toolbar v-if="managerConstraints" />
     </template>
-    <template v-slot:item.actions="{ item }" v-if="!listConstraints">
+    <template v-slot:item.actions="{ item, index }" v-if="!listConstraints">
       <v-dialog v-model="openEdit" max-width="800px">
-        <edit-book-form></edit-book-form>
+        <edit-book-form :book="stock[index]"></edit-book-form>
       </v-dialog>
       <v-icon small class="mr-2" @click="openForm(0)" v-if="!deleteConstraints">
         mdi-pencil

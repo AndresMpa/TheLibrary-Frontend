@@ -27,6 +27,8 @@ export default new Vuex.Store({
     seeList: false,
     seeDelete: false,
     seeEdit: false,
+    openDelete: false,
+    openEdit: false,
 
     // Paginator
     currentPage: 1,
@@ -81,6 +83,12 @@ export default new Vuex.Store({
     },
     setCrudDelete(state, status) {
       state.seeDelete = status;
+    },
+    setCrudOpenEdit(state, status) {
+      state.openEdit = status;
+    },
+    setCrudOpenDelete(state, status) {
+      state.openDelete = status;
     },
 
     // Paginator
@@ -178,6 +186,18 @@ export default new Vuex.Store({
         }
         default: {
           console.log("Error on see crud");
+          break;
+        }
+      }
+    },
+    handleCrudForms({ commit }, form) {
+      switch (form) {
+        case 0: {
+          commit("setCrudOpenEdit", !this.state.openEdit);
+          break;
+        }
+        case 1: {
+          commit("setCrudOpenDelete", !this.state.openDelete);
           break;
         }
       }

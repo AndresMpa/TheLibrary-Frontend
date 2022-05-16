@@ -81,6 +81,12 @@
               label="Descuento aplicable"
             ></v-text-field>
           </v-col>
+          <v-col cols="12">
+            <v-text-field
+              v-model="bookData.asset"
+              label="URL a la caratula del libro"
+            ></v-text-field>
+          </v-col>
         </v-row>
 
         <v-textarea
@@ -89,15 +95,6 @@
           v-model="bookData.summary"
           label="Sinopsis del ejemplar"
         ></v-textarea>
-
-        <v-file-input
-          chips
-          counter
-          show-size
-          v-model="cover"
-          accept="image/*"
-          label="Caratula del libro"
-        ></v-file-input>
       </v-container>
     </v-card-text>
 
@@ -112,42 +109,48 @@
 </template>
 
 <script>
+import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   name: "EditBookForm",
   data: () => ({
-    cover: undefined,
     bookData: {},
   }),
+  props: {
+    book: Object,
+  },
   methods: {
+    getData() {
+      this.bookData = this.book;
+    },
     closeEditForm() {
       this.$store.dispatch("handleCrudForms", 0);
     },
-    editItem(item) {
-      console.log(item);
-      this.uploadCover();
-    },
-    uploadCover() {
-      let formData = new FormData();
-      formData.append("title", this.cover.name);
-      formData.append("asset", this.cover);
-      const URL = "end/point";
-      const file = formData;
-
+    editItem() {
       axios
-        .post(URL, file, {
-          headers: {
-            "Content-Type": "multipart/form-data; boundary=*",
-          },
+        .put("book/edit", {
+          issn: this.bookData.issn,
+          item: this.bookData,
         })
         .then((res) => {
-          console.log(res);
-          this.folderToBeLoad = undefined;
-        })
-        .catch((err) => {
-          console.error("Ocurrio un error");
-          console.log(err);
+          res.status === 200
+            ? Swal.fire({
+                title: `${this.bookData.issn} ha sido editado`,
+                text: `Se modifico la información del ejemplar ${this.bookData.issn} satisfactoriamente`,
+                icon: "success",
+                confirmButtonText: "Confirmar",
+              })
+            : Swal.fire({
+                title: "Error",
+                text: `${this.bookData.issn} no ha sido modifico debido a un error del servidor`,
+                icon: "error",
+                confirmButtonText: "Confirmar",
+              });
         });
     },
+  },
+  created() {
+    this.getData();
   },
 };
 </script>

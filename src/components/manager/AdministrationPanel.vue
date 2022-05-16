@@ -53,7 +53,7 @@ export default {
   data: () => ({
     search: "",
     stock: [],
-  /*
+    /*
     title
     author
     year
@@ -120,11 +120,7 @@ export default {
       axios
         .get("/book/raw-list")
         .then((response) => response.data)
-        .then((data) => {
-          console.log(data);
-
-          this.stock = data;
-        });
+        .then((data) => (this.stock = data));
     },
     openForm(form) {
       this.$store.dispatch("handleCrudForms", form);

@@ -81,6 +81,12 @@
               label="Descuento aplicable"
             ></v-text-field>
           </v-col>
+          <v-col cols="12">
+            <v-text-field
+              v-model="bookData.asset"
+              label="URL a la caratula del libro"
+            ></v-text-field>
+          </v-col>
         </v-row>
 
         <v-textarea
@@ -89,63 +95,48 @@
           v-model="bookData.summary"
           label="Sinopsis del ejemplar"
         ></v-textarea>
-
-        <v-file-input
-          chips
-          counter
-          show-size
-          v-model="cover"
-          accept="image/*"
-          label="Caratula del libro"
-        ></v-file-input>
       </v-container>
     </v-card-text>
 
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="alert" @click="save()" dark>
-        Eliminar ejemplar
-      </v-btn>
+      <v-btn color="alert" @click="save()" dark> Agregar ejemplar </v-btn>
       <v-btn color="alter" @click="clear()" dark> Cancelar </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
+import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   name: "AddBookForm",
   data: () => ({
-    cover: undefined,
     bookData: {},
   }),
   methods: {
     clear() {
-      this.name = "";
+      this.bookData = {};
     },
     save() {
-      console.log("Make something");
-      this.uploadCover();
-    },
-    uploadCover() {
-      let formData = new FormData();
-      formData.append("title", this.cover.name);
-      formData.append("asset", this.cover);
-      const URL = "end/point";
-      const file = formData;
-
       axios
-        .post(URL, file, {
-          headers: {
-            "Content-Type": "multipart/form-data; boundary=*",
-          },
+        .post("book/add", {
+          item: this.bookData,
         })
         .then((res) => {
-          console.log(res);
-          this.folderToBeLoad = undefined;
-        })
-        .catch((err) => {
-          console.error("Ocurrio un error");
-          console.log(err);
+          res.status === 200
+            ? Swal.fire({
+                title: "Ejemplar agregado",
+                text: `Se agrego exitosamente el ejemplar ${this.bookData.issn}`,
+                icon: "success",
+                confirmButtonText: "Confirmar",
+              })
+            : Swal.fire({
+                title: "Error",
+                text: `${this.bookData.issn} no ha sido agregado debido a un error del servidor`,
+                icon: "error",
+                confirmButtonText: "Confirmar",
+              });
         });
     },
   },

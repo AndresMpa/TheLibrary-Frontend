@@ -128,8 +128,8 @@ export default {
     },
     uploadCover() {
       let formData = new FormData();
-      formData.append("name", this.cover.name);
-      formData.append("file", this.cover);
+      formData.append("title", this.cover.name);
+      formData.append("asset", this.cover);
       const URL = "end/point";
       const file = formData;
 

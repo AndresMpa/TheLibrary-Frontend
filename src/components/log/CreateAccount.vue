@@ -124,19 +124,21 @@
 </template>
 
 <script>
+import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   name: "CreateAccount",
   data: () => ({
     name: "",
-    lastName: "",
-    userName: "",
-    address: "",
     phone: "",
     email: "",
-    news: false,
+    address: "",
+    lastName: "",
+    userName: "",
     password: "",
     rePassword: "",
     showPassword: false,
+    news: false,
     errors: [(value) => !!value || "Este campo es necesario"],
     rules: {
       required: (value) => !!value || "Este campo es necesario",
@@ -161,7 +163,7 @@ export default {
       });
     },
     createAccount() {
-      data = {
+      const accountInfo = {
         name: this.name,
         lastName: this.lastName,
         userName: this.userName,
@@ -171,6 +173,24 @@ export default {
         news: this.news,
         password: this.password,
       };
+      axios.post("user/create", accountInfo).then((res) => {
+        if (res.status === 200) {
+          Swal.fire({
+            title: "Usuario creado",
+            text: `Se ha creado un usuario ${this.userName}`,
+            icon: "success",
+            confirmButtonText: "Confirmado",
+          });
+        } else {
+          Swal.fire({
+            title: "Error de creación",
+            text: `Lo lamentamos ${this.name} ${this.lastName} no se ha creado el usuario debido a un error del sevidor`,
+            icon: "error",
+            confirmButtonText: "Confirmado",
+          });
+        }
+      });
+      this.sendLog();
     },
   },
 };

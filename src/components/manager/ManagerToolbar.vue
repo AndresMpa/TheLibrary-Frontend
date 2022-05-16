@@ -6,11 +6,11 @@
     <v-dialog :v-model="this.addBookForm" max-width="800px">
       <template v-slot:activator="{ on, attrs }">
         <v-btn
-          v-on="on"
-          v-bind="attrs"
           @click="openAddBookForm"
+          v-bind="attrs"
           class="mb-2"
           color="main"
+          v-on="on"
           dark
         >
           Agregar ejemplar

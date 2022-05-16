@@ -1,7 +1,7 @@
 <template>
   <v-card color="main" dark>
     <v-card-title>
-      <span class="text-h5">Formulario de ingreso de ejemplares</span>
+      <span class="text-h5">Formulario de edición de ejemplares</span>
     </v-card-title>
     <v-card-text>
       <v-container>
@@ -103,27 +103,27 @@
 
     <v-card-actions>
       <v-spacer></v-spacer>
-      <v-btn color="alert" @click="save()" dark>
+      <v-btn color="alert" @click="editItem(book)" dark>
         Eliminar ejemplar
       </v-btn>
-      <v-btn color="alter" @click="clear()" dark> Cancelar </v-btn>
+      <v-btn color="alter" @click="closeEditForm()" dark> Cancelar </v-btn>
     </v-card-actions>
   </v-card>
 </template>
 
 <script>
 export default {
-  name: "AddBookForm",
+  name: "EditBookForm",
   data: () => ({
     cover: undefined,
     bookData: {},
   }),
   methods: {
-    clear() {
-      this.name = "";
+    closeDeleteForm() {
+      this.$store.dispatch("handleCrudForms", 0);
     },
-    save() {
-      console.log("Make something");
+    editItem(item) {
+      console.log(item);
       this.uploadCover();
     },
     uploadCover() {

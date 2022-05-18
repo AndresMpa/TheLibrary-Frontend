@@ -31,8 +31,11 @@
           readonly
         ></v-rating>
 
-        <div class="grey--text d-block ml-auto">
-          {{ information.rating }} ({{ information.votes }})
+        <div
+          class="red--text d-block ml-auto"
+          v-if="information.discount > 0"
+        >
+          (-{{ information.discount * 100 }}% off)
         </div>
       </v-row>
     </v-card-text>
@@ -74,20 +77,20 @@ export default {
   },
   methods: {
     validateAccount() {
-      if(this.$store.state.user.information.username === undefined) {
+      if (this.$store.state.user.information.username === undefined) {
         this.$router.push({ name: "Login" }).catch(() => {
           console.log("Login");
         });
       }
     },
     buy(item) {
-      this.validateAccount()
+      this.validateAccount();
       this.loading = true;
       this.$store.dispatch("handleShoppingBag", [item, "buy"]);
       setTimeout(() => (this.loading = false), 2000);
     },
     reserve(item) {
-      this.validateAccount()
+      this.validateAccount();
       this.loading = true;
       if (this.$store.state.user.reserved.length < 10) {
         this.$store.dispatch("handleShoppingBag", [item, "reserved"]);

@@ -42,7 +42,9 @@ export default {
       axios
         .get("/book/top")
         .then((response) => response.data)
-        .then((data) => (this.books = data));
+        .then((data) => {
+          this.books = data;
+        });
     },
   },
   created() {

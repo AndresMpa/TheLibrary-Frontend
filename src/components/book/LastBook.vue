@@ -25,7 +25,7 @@
             <div class="text-subtitle-1">Resumen</div>
 
             <div>
-              {{ item.description }}
+              {{ item.summary }}
             </div>
           </v-card-text>
 

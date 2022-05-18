@@ -1,21 +1,26 @@
 <template>
-  <v-row class="shelf">
-    <v-col
-      v-for="(book, index) in stock[this.$store.state.currentPage - 1]"
-      class="d-flex child-flex"
-      :key="index"
-      xl="2"
-      lg="3"
-      md="3"
-      xs="12"
-      sm="12"
-    >
-      <Book :information="book"></Book>
-    </v-col>
-    <v-col v-if="routeName !== 'LastResult'">
-      <Pagination :total="stock.length" />
-    </v-col>
-  </v-row>
+  <v-container fluid>
+    <v-row>
+      <v-col
+        v-for="(book, index) in stock[this.$store.state.currentPage - 1]"
+        class="d-flex child-flex"
+        :key="index"
+        xl="2"
+        lg="3"
+        md="3"
+        xs="12"
+        sm="12"
+      >
+        <Book :information="book"></Book>
+      </v-col>
+    </v-row>
+
+    <v-row>
+      <v-col v-if="routeName !== 'LastResult'">
+        <Pagination :total="stock.length" />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
@@ -35,9 +40,4 @@ export default {
 };
 </script>
 
-<style lang="css" scoped>
-.shelf {
-  margin: 0% auto;
-  width: 98%;
-}
-</style>
+<style lang="css" scoped></style>

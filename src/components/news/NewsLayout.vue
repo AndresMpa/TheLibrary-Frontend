@@ -23,7 +23,7 @@ export default {
   methods: {
     getNews() {
       axios
-        .get("/news/test")
+        .get("/news/list")
         .then((response) => response.data)
         .then((data) => (this.information = data));
     },

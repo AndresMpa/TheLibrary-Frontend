@@ -17,6 +17,10 @@ export default {
   name: "Main",
   components: { ClientBar, ContentLoader, ManagerBar },
   methods: {
+    handleTheme() {
+      let theme = localStorage.getItem("theme");
+      this.$vuetify.theme.dark = Number(theme);
+    },
     checkSession() {
       this.$store.dispatch("autoLogin");
     },
@@ -24,6 +28,7 @@ export default {
   //Hooks
   created() {
     this.checkSession();
+    this.handleTheme();
   },
 };
 </script>

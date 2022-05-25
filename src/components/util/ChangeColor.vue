@@ -10,9 +10,13 @@ export default {
   name: "ChangeColor",
   methods: {
     changeTheme() {
-      this.$vuetify.theme.dark
-        ? (this.$vuetify.theme.dark = false)
-        : (this.$vuetify.theme.dark = true);
+      if (this.$vuetify.theme.dark) {
+        this.$vuetify.theme.dark = false;
+        localStorage.setItem("theme", 0);
+      } else {
+        this.$vuetify.theme.dark = true;
+        localStorage.setItem("theme", 1);
+      }
     },
   },
 };

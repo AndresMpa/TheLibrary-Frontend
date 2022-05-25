@@ -21,7 +21,7 @@
           </v-btn>
           <v-btn small class="blue accent-1 ma-2" @click="changeStory(3)">
             <v-icon> mdi-truck-fast </v-icon>
-            Regresados
+            Enviados
           </v-btn>
           <v-btn small class="purple darken-1 ma-2" @click="changeStory(4)">
             <v-icon> mdi-lock-clock </v-icon>

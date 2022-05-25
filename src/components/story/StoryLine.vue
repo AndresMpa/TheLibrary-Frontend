@@ -62,7 +62,7 @@ export default {
     },
     getReturnedStories() {
       axios
-        .post("/story/returned", {
+        .post("/story/purchased", {
           username: this.$store.state.user.information.username,
         })
         .then((response) => response.data)

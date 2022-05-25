@@ -61,6 +61,12 @@
                             required
                           ></v-text-field>
                         </v-col>
+                        <v-col cols="12">
+                          <v-text-field
+                            label="Imagen de perfil (Opcional)"
+                            v-model="profile"
+                          ></v-text-field>
+                        </v-col>
                       </v-row>
                       <v-row align="center" justify="center">
                         <v-col cols="12" sm="6" md="4">
@@ -77,7 +83,6 @@
                             "
                           ></v-text-field>
                         </v-col>
-
                         <v-col cols="12" sm="6" md="4">
                           <v-text-field
                             counter
@@ -133,6 +138,7 @@ export default {
     phone: "",
     email: "",
     address: "",
+    profile: "",
     lastName: "",
     userName: "",
     password: "",
@@ -167,11 +173,14 @@ export default {
         name: this.name,
         lastName: this.lastName,
         userName: this.userName,
-        address: this.address,
-        phone: this.phone,
-        email: this.email,
-        news: this.news,
         password: this.password,
+        permission: 0,
+        mail: this.email,
+        address: this.address,
+        news: this.news,
+        phone: this.phone,
+        preferences: [],
+        profile: this.profile,
       };
       axios.post("user/create", accountInfo).then((res) => {
         if (res.status === 200) {

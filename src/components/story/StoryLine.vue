@@ -38,31 +38,41 @@ export default {
   methods: {
     getAllStories() {
       axios
-        .get("/history/all")
+        .post("/story/all", {
+          username: this.$store.state.user.information.username,
+        })
         .then((response) => response.data)
         .then((data) => (this.items = data));
     },
     getCancelledStories() {
       axios
-        .get("/history/cancelled")
+        .post("/story/cancelled", {
+          username: this.$store.state.user.information.username,
+        })
         .then((response) => response.data)
         .then((data) => (this.items = data));
     },
     getDeliveredStories() {
       axios
-        .get("/history/delivered")
+        .post("/story/delivered", {
+          username: this.$store.state.user.information.username,
+        })
         .then((response) => response.data)
         .then((data) => (this.items = data));
     },
     getReturnedStories() {
       axios
-        .get("/history/returned")
+        .post("/story/returned", {
+          username: this.$store.state.user.information.username,
+        })
         .then((response) => response.data)
         .then((data) => (this.items = data));
     },
     getReserves() {
       axios
-        .get("/history/reserves")
+        .post("/story/reserves", {
+          username: this.$store.state.user.information.username,
+        })
         .then((response) => response.data)
         .then((data) => (this.items = data));
     },

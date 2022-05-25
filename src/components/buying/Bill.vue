@@ -103,26 +103,27 @@ export default {
       this.$store.dispatch("clearBag");
     },
     sendPay() {
-      this.$store.state.user.book.forEach((item) => {
-        try {
-          axios
-            .delete("/book/remove", {
-              issn: item.issn,
-            })
-            .then((response) => {
-              if (response.status === 200) {
+      try {
+        axios
+          .post("/book/buy", {
+            buying: this.$store.state.user.book,
+          })
+          .then((response) => response.data)
+          .then((data) => {
+            if (data.message === "Proceso de compra finalizado") {
+              this.$store.state.user.book.forEach((item) => {
                 this.$store.dispatch("removeBookFromBag", item);
-              }
-            });
-        } catch (e) {
-          Swal.fire({
-            title: "Error",
-            text: `Ha ocurrido un error al procesar ${item.issn} por lo que no se agregara en este envio`,
-            icon: "error",
-            confirmButtonText: "Entendido",
+              });
+            }
           });
-        }
-      });
+      } catch (e) {
+        Swal.fire({
+          title: "Error",
+          text: `Ha ocurrido un error al procesar ${item.issn} por lo que no se agregara en este envio`,
+          icon: "error",
+          confirmButtonText: "Entendido",
+        });
+      }
     },
     sendMain() {
       this.$router.push({ name: "Store" }).catch(() => {

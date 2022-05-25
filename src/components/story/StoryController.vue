@@ -1,7 +1,7 @@
 <template>
   <v-card class="mx-auto" color="alter" dark>
     <v-card-title class="text-h5">
-      Historial de compras de {{ this.$store.state.user.name }}
+      Historial de compras de {{ this.$store.state.user.information.username }}
     </v-card-title>
     <v-card-text> Aquí puedes consultas tu hisorial de compras </v-card-text>
     <v-card-actions class="d-flex">

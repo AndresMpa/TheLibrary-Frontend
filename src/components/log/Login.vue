@@ -51,6 +51,7 @@
 
 <script>
 import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   name: "Login",
   data: () => ({
@@ -76,7 +77,18 @@ export default {
       };
       axios
         .post("/user/signin", logData)
-        .then((response) => response.data)
+        .then((response) => {
+          if (response.status === 200) {
+            return response.data;
+          } else {
+            Swal.fire({
+              title: "Ocurrió un error",
+              text: "Estamos teniendo problemas para procesos tu pedido, intentalo de nuevo en un momento",
+              icon: "error",
+              confirmButtonText: "Entendido",
+            });
+          }
+        })
         .then((data) => {
           this.$store.dispatch("setUser", data);
         });

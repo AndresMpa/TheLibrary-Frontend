@@ -94,35 +94,63 @@
 </template>
 
 <script>
-import axios from "axios";
 import Swal from "sweetalert2";
+import axios from "axios";
 export default {
   name: "Bill",
   methods: {
     clearBag() {
       this.$store.dispatch("clearBag");
     },
+    updateStory() {
+      axios
+        .post("/story/add-story", {
+          username: this.$store.state.user.information.username,
+          address: this.$store.state.user.information.address,
+          items: this.$store.state.user.book,
+        })
+        .then((response) => response.data)
+        .then((data) => {
+          console.log(data.message);
+          Swal.fire({
+            title: "Separación exitosa",
+            text: `La separación de libros ha ocurrido de manera exitosa, la compra llegará en unos días`,
+            icon: "success",
+            confirmButtonText: "Entendido",
+          });
+        })
+        .finally(() => {
+          this.$store.state.user.book.forEach((item, index) => {
+            console.log(
+              "El libro ",
+              item.title,
+              " se ha separado para comprar"
+            );
+            this.$store.dispatch("removeBookFromBag", index);
+          });
+        });
+    },
     sendPay() {
       try {
         axios
-          .post("/book/buy", {
+          .post("/book/remove", {
             buying: this.$store.state.user.book,
           })
           .then((response) => response.data)
           .then((data) => {
-            if (data.message === "Proceso de compra finalizado") {
-              this.$store.state.user.book.forEach((item) => {
-                this.$store.dispatch("removeBookFromBag", item);
+            if (data.message === "Proceso de eliminación completo") {
+              this.updateStory();
+            } else {
+              Swal.fire({
+                title: "Error",
+                text: `Ha ocurrido un error al procesar esta compra por lo que no se ha podido procesar el envio`,
+                icon: "error",
+                confirmButtonText: "Entendido",
               });
             }
           });
       } catch (e) {
-        Swal.fire({
-          title: "Error",
-          text: `Ha ocurrido un error al procesar ${item.issn} por lo que no se agregara en este envio`,
-          icon: "error",
-          confirmButtonText: "Entendido",
-        });
+        console.log(e);
       }
     },
     sendMain() {

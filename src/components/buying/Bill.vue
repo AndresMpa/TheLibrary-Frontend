@@ -51,9 +51,7 @@
         <v-row dense v-if="product.discount > 0">
           <v-col> {{ product.title }} - {{ product.author }} </v-col>
           <v-col>
-            <h3>
-              {{ product.discount * 100 }} %
-            </h3>
+            <h3>{{ product.discount * 100 }} %</h3>
           </v-col>
         </v-row>
       </div>
@@ -96,6 +94,8 @@
 </template>
 
 <script>
+import axios from "axios";
+import Swal from "sweetalert2";
 export default {
   name: "Bill",
   methods: {
@@ -103,7 +103,26 @@ export default {
       this.$store.dispatch("clearBag");
     },
     sendPay() {
-      console.log("Pay");
+      this.$store.state.user.book.forEach((item) => {
+        try {
+          axios
+            .delete("/book/remove", {
+              issn: item.issn,
+            })
+            .then((response) => {
+              if (response.status === 200) {
+                this.$store.dispatch("removeBookFromBag", item);
+              }
+            });
+        } catch (e) {
+          Swal.fire({
+            title: "Error",
+            text: `Ha ocurrido un error al procesar ${item.issn} por lo que no se agregara en este envio`,
+            icon: "error",
+            confirmButtonText: "Entendido",
+          });
+        }
+      });
     },
     sendMain() {
       this.$router.push({ name: "Store" }).catch(() => {

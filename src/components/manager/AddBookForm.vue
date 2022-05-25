@@ -8,6 +8,12 @@
         <v-row>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
+              v-model="bookData.issn"
+              label="ISSN del ejemplar"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field
               v-model="bookData.title"
               label="Titulo del libro"
             ></v-text-field>
@@ -20,19 +26,20 @@
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              v-model="bookData.year"
-              label="Año de publicación"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6" md="4">
-            <v-text-field
               v-model="bookData.genre"
               label="Genero del libro"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
+              v-model="bookData.status"
+              label="Estado del ejemplar"
+            ></v-text-field>
+          </v-col>
+          <v-col cols="12" sm="6" md="4">
+            <v-text-field
               prefix="N⁰"
+              type="number"
               v-model="bookData.pages"
               label="Número de paginas"
             ></v-text-field>
@@ -45,31 +52,28 @@
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              v-model="bookData.issn"
-              label="ISSN del ejemplar"
-            ></v-text-field>
-          </v-col>
-          <v-col cols="12" sm="6" md="4">
-            <v-text-field
               v-model="bookData.language"
               label="Idioma de la edición"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
+              type="number"
               v-model="bookData.release"
               label="Versión de la publicación"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
-              v-model="bookData.status"
-              label="Estado del ejemplar"
+              type="number"
+              v-model="bookData.year"
+              label="Año de publicación"
             ></v-text-field>
           </v-col>
           <v-col cols="12" sm="6" md="4">
             <v-text-field
               prefix="$"
+              type="number"
               v-model="bookData.price"
               label="Precio del ejemplar"
             ></v-text-field>
@@ -77,6 +81,7 @@
           <v-col cols="12" sm="6" md="4">
             <v-text-field
               prefix="%"
+              type="number"
               v-model="bookData.discount"
               label="Descuento aplicable"
             ></v-text-field>
@@ -119,6 +124,7 @@ export default {
       this.bookData = {};
     },
     save() {
+      this.bookData.rating = 0;
       axios
         .post("book/add", {
           item: this.bookData,

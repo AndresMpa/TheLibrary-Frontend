@@ -11,7 +11,11 @@
 
     <v-spacer></v-spacer>
 
-    <shopping-bag v-if="this.$vuetify.breakpoint.name !== 'xs'"></shopping-bag>
+    <shopping-bag
+      v-if="
+        this.$vuetify.breakpoint.name !== 'xs' && this.$route.name === 'Store'
+      "
+    ></shopping-bag>
 
     <change-color v-if="this.$vuetify.breakpoint.name !== 'xs'"></change-color>
 

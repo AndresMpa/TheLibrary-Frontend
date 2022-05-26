@@ -118,8 +118,6 @@ export default {
             icon: "success",
             confirmButtonText: "Entendido",
           });
-        })
-        .finally(() => {
           this.$store.state.user.book.forEach((item, index) => {
             console.log(
               "El libro ",

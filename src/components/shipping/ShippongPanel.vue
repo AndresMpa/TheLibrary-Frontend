@@ -5,6 +5,10 @@
     show-by="quantity"
     class="elevation-1"
     :headers="headers"
+    :expanded.sync="expanded"
+    single-expand="true"
+    item-key="name"
+    show-expand
   >
     <template v-slot:top>
       <v-text-field
@@ -18,6 +22,11 @@
     </template>
     <template v-slot:item.actions="{ item }">
       <v-icon class="ma-5" @click="changeStatus(item)"> mdi-truck </v-icon>
+    </template>
+    <template v-slot:expanded-item="{ headers, item }">
+      <td :colspan="headers.length">
+        Dirección de envio: {{ item.address }}
+      </td>
     </template>
     <template v-slot:no-data>
       <v-btn color="main" @click="initialize" dark> Recargar </v-btn>
@@ -33,6 +42,7 @@ export default {
   data: () => ({
     search: "",
     stock: [],
+    expanded: [],
     headers: [
       {
         text: "Codigo del ejemplar",

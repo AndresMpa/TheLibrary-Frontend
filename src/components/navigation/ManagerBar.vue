@@ -49,6 +49,11 @@ export default {
           icon: "mdi-plus-box-multiple",
           name: "Gestión de ejemplares",
         },
+        {
+          to: "CreateNews",
+          icon: "mdi-newspaper",
+          name: "Crear noticias",
+        },
       ],
       account: {
         icon: "mdi-account",

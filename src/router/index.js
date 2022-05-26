@@ -92,6 +92,14 @@ const routes = [
           auth: true,
         },
       },
+      {
+        path: "/create-news",
+        name: "CreateNews",
+        component: () => import("../views/CreateNews.vue"),
+        meta: {
+          auth: true,
+        },
+      },
     ],
   },
 

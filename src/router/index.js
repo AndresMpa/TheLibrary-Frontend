@@ -100,6 +100,14 @@ const routes = [
           auth: true,
         },
       },
+      {
+        path: "/shipping",
+        name: "Shipping",
+        component: () => import("../views/Shipping.vue"),
+        meta: {
+          auth: true,
+        },
+      },
     ],
   },
 

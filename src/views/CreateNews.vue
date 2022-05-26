@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import NewsForm from "../components/manager/NewsForm.vue";
+import NewsForm from "../components/createNews/NewsForm.vue";
 export default {
   name: "CreateNews",
   components: { NewsForm },

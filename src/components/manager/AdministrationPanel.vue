@@ -53,24 +53,6 @@ export default {
   data: () => ({
     search: "",
     stock: [],
-    /*
-    title
-    author
-    year
-    genre
-    pages
-    editorial
-    issn
-    language
-    release
-    status
-    price
-    discount
-    summary
-    asset
-    rating
-    voter
-  */
     headers: [
       {
         text: "Ejemplares existentes",

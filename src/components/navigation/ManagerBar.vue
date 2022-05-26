@@ -54,6 +54,11 @@ export default {
           icon: "mdi-newspaper",
           name: "Crear noticias",
         },
+        {
+          to: "Shipping",
+          icon: "mdi-package-up",
+          name: "Envios",
+        },
       ],
       account: {
         icon: "mdi-account",

@@ -79,7 +79,16 @@ export default {
       address: "",
       phone: "",
       genders: [],
-      preferences: ["Programming", "Design", "Vue", "Vuetify"],
+      preferences: [
+        "Programación",
+        "Diseño",
+        "Novelas",
+        "Terror",
+        "Ciencia ficción",
+        "Romatico",
+        "Cocina",
+        "Historia",
+      ],
     };
   },
   computed: {
